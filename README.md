@@ -28,7 +28,7 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 
 
 
-### Modules and Functionalies added
+### Modules and Functionalities added
 
 **1. [Login and SignUp Module](/Login%20And%20Signup%20Module)**<br>
 
