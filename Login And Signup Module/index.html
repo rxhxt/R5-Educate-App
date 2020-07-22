@@ -6,109 +6,136 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
+</head>
 
-  <body translate="no">
+<body translate="no">
     <div class="container">
-      <section id="formHolder">
-        <div class="row">
-
-          <!-- The left side includes brand name, logo and the success message -->
-          <div class="col-sm-6 brand">
-            <a href="#" class="logo">R<sup>5</sup></a>
-            <div class="heading">
-              <h2>R<sup>5</sup>Assist</h2>
-              <p>Your Right Choice</p>
-            </div>
-            <div class="success-msg">
-                <p>Great! You are one of our members now</p>
-              <a href="#" class="profile">Your Profile</a>
-            </div>
-          </div>
-
-          <!-- The right side of the container
+        <section id="formHolder">
+            <div class="row">
+                <!-- The left side includes brand name, logo and the success message -->
+                <div class="col-sm-6 brand">
+                    <a href="#" class="logo">R<sup>5</sup></a>
+                    <div class="heading">
+                        <h2>R<sup>5</sup>Assist</h2>
+                        <p>Your Right Choice</p>
+                    </div>
+                    <div class="success-msg">
+                        <p>Great! You are one of our members now</p>
+                        <a href="#" class="profile">Your Profile</a>
+                    </div>
+                </div>
+                <!-- The right side of the container
             This includes
               1. Signup Form
               2. Login Form
            -->
-           <!-- Login Part -->
-          <div class="col-sm-6 form">
-            <div class="login form-peice switched">
-
-              <form class="login-form" action="#" method="post">
-                <div class="heading">
-                  <h2>Login</h2>
+                <!-- Login Part -->
+                <div class="col-sm-6 form">
+                    <div class="login form-peice switched">
+                        <form class="login-form" action="#" method="post">
+                            <div class="heading">
+                                <h3>Welcome Back!!</h3>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginemail">Email Adress</label>
+                                <input type="email" name="loginemail" id="loginemail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" name="loginPassword" id="loginPassword" required>
+                            </div>
+                            <div class="CTA">
+                                <button type="button submit" class="btn btn-success Login">Login</button>
+                                <a href="#" class="switch">I'm New</a>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Signup Part -->
+                    <div class="signup form-peice">
+                        <form class="signup-form" action="#" method="post">
+                            <div class="heading">
+                                <h3>You seem new here!!</h3>
+                            </div>
+                            <div class="form-group">
+                                <p for="exampleFormControlSelect1">Choose Type of User</p>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Student</option>
+                                    <option>Teacher</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" name="username" id="name" class="name">
+                                <span class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Adress</label>
+                                <input type="email" name="emailAdress" id="email" class="email">
+                                <span class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="pass">
+                                <span class="error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordCon">Confirm Password</label>
+                                <input type="password" name="passwordCon" id="passwordCon" class="passConfirm">
+                                <span class="error"></span>
+                            </div>
+                            <div class="CTA">
+                                <button type="button submit" class="btn btn-success signup">SignUp Now</button>
+                                <a href="#" class="switch">I have an account</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="loginemail">Email Adress</label>
-                  <input type="email" name="loginemail" id="loginemail" required>
-                </div>
-                <div class="form-group">
-                  <label for="loginPassword">Password</label>
-                  <input type="password" name="loginPassword" id="loginPassword" required>
-                </div>
-                <div class="CTA">
-                  <button type="button submit" class="btn btn-success Login">Login</button>
-                  <a href="#" class="switch">I'm New</a>
-                </div>
-              </form>
             </div>
-
-            <!-- Signup Part -->
-            <div class="signup form-peice">
-              <form class="signup-form" action="#" method="post">
-                <div class="heading">
-                  <h2>SignUp</h2>
-                </div>
-                <div class="form-group">
-                  <p for="exampleFormControlSelect1">Choose Type of User</p>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Student</option>
-                    <option>Teacher</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input type="text" name="username" id="name" class="name">
-                  <span class="error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email Adress</label>
-                  <input type="email" name="emailAdress" id="email" class="email">
-                  <span class="error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" id="password" class="pass">
-                  <span class="error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="passwordCon">Confirm Password</label>
-                  <input type="password" name="passwordCon" id="passwordCon" class="passConfirm">
-                  <span class="error"></span>
-                </div>
-                <div class="CTA">
-                  <button type="button submit" class="btn btn-success SignUp">SignUp</button>
-                  <a href="#" class="switch">I have an account</a>
-                </div>
-              </form>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+        </section>
     </div>
-    
     <!-- The Javascript Part -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="script.js"></script>
+    <!-- JS for checking whether the form data is being submitted properly or not -->
+   <!--  <script>
+    var nameInput = document.getElementById('name');
+    var emailInput = document.getElementById('email');
+    var passwordInput = document.getElementById('password');
+    var passwordInputConfirm = document.getElementById('passwordCon');
+    var selectInput = document.getElementById('exampleFormControlSelect1');
+    var loginPasswordInput = document.getElementById('loginPassword')
+    var loginemailInput = document.getElementById('loginemail');
 
-  </body>
+
+    //for signup
+    document.querySelector('form.signup-form').addEventListener('submit', function(e) {
+
+        //prevent the normal submission of the form
+        e.preventDefault();
+        console.log(selectInput.value);
+        console.log(nameInput.value);
+        console.log(emailInput.value);
+        console.log(passwordInput.value);
+        console.log(passwordInputConfirm.value);
+
+    });
+    //for login
+    document.querySelector('form.login-form').addEventListener('submit', function(e) {
+
+        //prevent the normal submission of the form
+        e.preventDefault();
+        console.log(loginemailInput.value);
+        console.log(loginPasswordInput.value);
+
+    });
+    </script> -->
+</body>
+
 </html>
