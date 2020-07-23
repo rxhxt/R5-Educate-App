@@ -27,7 +27,6 @@ Our project proves to be a resource for the students where teachers can upload a
 Overall we aim to provide a complete platform where we bridge the gap between the traditional classrooms and the online teaching-learning process.
 
 
-
 ### Modules and Functionalities added
 
 **1. [Login and SignUp Module](/Login%20And%20Signup%20Module)**<br>
@@ -40,5 +39,18 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 &nbsp;&nbsp;&nbsp;a. [style.css](/Login%20And%20Signup%20Module/style.css)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Login and SignUp module<br>
 
+### Installing Dependencies for backend
+
+	```console
+	A) Clone the repository
+	> git clone https://github.com/rxhxt/R5-Educate-App.git ### Fetch the code
+
+	> cd R5-Educate-App/ ### Change to root directory
+
+	B) Install Python packages
+	> python3 -m pip install -r requirements.txt
+	
+	
+	```
 
 
