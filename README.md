@@ -7,7 +7,7 @@ This repository includes the website team **Constant Variables** is making for t
 ### Application-Type : Website<br>
 **Tech Stack**: HTML | CSS | Bootstrap4 | MaterializeCSS | Javascript | Python | SQlite3 | Flask
 ### Idea-Description
-Since the advent of digital platforms for learning, and their tremendous use due to the current scenario, the students are getting bombarded with a lot of data, making it difficult for them to understand, digest,reproduce the content and even analyse their progress.
+Since the advent of digital platforms for learning, and their tremendous use due to the current scenario, the students are getting bombarded with a lot of data, making it difficult for them to understand, digest, reproduce the content and even analyze their progress.
 
 To tackle this problem, our project, R<sup>5</sup> Assist is a balance of a classroom-based teaching-learning website and an Analytics based tool beneficial for both students as well as teachers. We propose a comprehensive product website with the following features:<br>
 1. Login/SignUp facility for teachers as well as students. A teacher will be able to view any activity that a student in his/her class does.<br> 
@@ -25,7 +25,7 @@ To tackle this problem, our project, R<sup>5</sup> Assist is a balance of a clas
 Our project proves to be a resource for the students, where teachers can upload assignments, notes, and many more things. It also helps students remember by summarising the content so that students can learn what’s most important. Our practice tests help students reproduce what they have already learned. Students can review their performance from our analytics dashboard, not only that our project also helps teachers review their students’ performance, their schedule, and compare results. In the end, after reviewing their performance the students can reflect and improve by taking our periodic review practice tests.
 
 ***What is the Fibonacci Study Plan?***<br>
-It is a comprehensive study plan based on the Fibonacci Series(0, 1, 1, 2, 3, 5, 8, .....). This series or any similar one can help in increasing the remembrance of a particular topic. In this plan a portion of syllabus is revised at regular intervals of times say, first time after 1 day, then on the 2<sup>nd</sup> day, then on the 3<sup>rd</sup>, then on the 5<sup>th</sup> and so on. After some sessions of revision it becomes a part of the subconscious memory and is easy to recollect. This can be done for some important facts, formulae, dates and anything which requires through and continuous revision.
+It is a comprehensive study plan based on the Fibonacci Series(0, 1, 1, 2, 3, 5, 8, .....). This series or any similar one can help in increasing the remembrance of a particular topic. In this plan, a portion of the syllabus is revised at regular intervals of times say, first time after 1 day, then on the 2<sup>nd</sup> day, then on the 3<sup>rd</sup>, then on the 5<sup>th</sup>, and so on. After some sessions of revision, it becomes a part of the subconscious memory and is easy to recollect. This can be done for some important facts, formulae, dates, and anything which requires through and continuous revision.
 
 Overall we aim to provide a complete platform where we bridge the gap between the traditional classrooms and the online teaching-learning process.
 
@@ -70,7 +70,7 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 
 **1. [Login and SignUp Module](/Login%20And%20Signup%20Module)**<br>
 
-**Instructions for usage:** Copy all the 3 files, index.html, style.css, script.js in the same folder and then open index.html on your browser.<br>
+**Instructions for usage:** Copy all the 3 files, index.html, style.css, script.js in the same folder, and then open index.html on your browser.<br>
 &nbsp;&nbsp;&nbsp;a. [index.html](/Login%20And%20Signup%20Module/index.html)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the HTML for Login and SignUp module<br>
 &nbsp;&nbsp;&nbsp;a. [script.js](/Login%20And%20Signup%20Module/script.js)<br>
@@ -84,9 +84,9 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 
 **2. [UI for Giving Tests](/Giving%20Tests/UI)**<br>
 
-This module will be useful for students for giving tests on the platform<br>
+This module will be useful to students for giving tests on the platform<br>
 
-**Instructions for usage:** Copy all the 3 files, index.html, style.css, script.js in the same folder and then open index.html on your browser.<br>
+**Instructions for usage:** Copy all the 3 files, index.html, style.css, script.js in the same folder, and then open index.html on your browser.<br>
 &nbsp;&nbsp;&nbsp;a. [index.html](/Giving%20Tests/UI/index.html)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the HTML for Giving Tests module<br>
 &nbsp;&nbsp;&nbsp;a. [script.js](/Giving%20Tests/UI/script.js)<br>
@@ -94,7 +94,7 @@ This module will be useful for students for giving tests on the platform<br>
 &nbsp;&nbsp;&nbsp;a. [style.css](/Giving%20Tests/UI/style.css)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Giving Tests module<br>
 
-**Issues:** Some more comments to be written in CSS and JS, this page is not completely optimised for mobile devices.
+**Issues:** Some more comments to be written in CSS and JS, this page is not completely optimized for mobile devices.
 <br>
 <br>
 
