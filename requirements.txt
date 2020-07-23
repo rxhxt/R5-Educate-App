@@ -1,0 +1,4 @@
+pandas==1.0.5
+nltk==3.4
+spacy==2.3.2
+pyenchant==3.1.1
