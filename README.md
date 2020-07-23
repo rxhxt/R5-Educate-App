@@ -75,6 +75,42 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 &nbsp;&nbsp;&nbsp;a. [style.css](/Login%20And%20Signup%20Module/style.css)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Login and SignUp module<br>
 
+**Issues:** No potential issue visible till now
+<br>
+<br>
+
+**2. [UI for Giving Tests](/Giving%20Tests/UI)**<br>
+
+This module will be useful for students for giving tests on the platform<br>
+
+**Instructions for usage:** Copy all the 3 files, index.html, style.css, script.js in the same folder and then open index.html on your browser.<br>
+&nbsp;&nbsp;&nbsp;a. [index.html](/Giving%20Tests/UI/index.html)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the HTML for Giving Tests module<br>
+&nbsp;&nbsp;&nbsp;a. [script.js](/Giving%20Tests/UI/script.js)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the Javascript for Giving Tests module<br>
+&nbsp;&nbsp;&nbsp;a. [style.css](/Giving%20Tests/UI/style.css)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Giving Tests module<br>
+
+**Issues:** Some more comments to be written in CSS and JS, this page is not completely optimised for mobile devices.
+<br>
+<br>
+
+
+**3. [UI for Uploading Tests](/Uploading%20Tests/UI)**<br>
+
+This module will be useful for teachers for setting MCQ questions for students.<br>
+
+**Instructions for usage:** Copy index.html to a folder and open it on your browser.<br>
+&nbsp;&nbsp;&nbsp;a. [index.html](/Uploading%20Tests/index.html)<br>
+
+**Issues:** Not well commented, some problem with id's for adding options to new questions and UI has to be improved.
+<br>
+<br>
+
+
+
+
+
 ### Installing Dependencies for backend
 
 ```bash
