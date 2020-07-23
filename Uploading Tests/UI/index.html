@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id='main'>
+            <div class="container" id='Question1'>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="question1" class="materialize-textarea"></textarea>
+                                <label for="question1">Your Question</label>
+                            </div>
+                            <form id="options1">
+                                <div class="row" id='d11'>
+                                    <div class="input-field col s6"><label for="t11"> Option 1</label><input type='text' id='t11'></div>
+                                </div>
+                            </form>
+                            <a class="btn-floating btn-large waves-effect waves-light red" id="addOption1"><i class="material-icons">expand_more</i></a>
+                            <a class="btn-floating btn-large waves-effect waves-light red" id="removeOption1"><i class="material-icons">expand_less</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn-floating btn-large waves-effect waves-light red" id="addQuestion"><i class="material-icons">add</i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red" id="removeQuestion"><i class="material-icons">subtract</i></a>
+    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var optionNumber = 2;
+        var questionNumber = 1;
+        $('#addOption' + questionNumber).click(function() {
+            console.log('#addOption' + questionNumber)
+            if (optionNumber == 5) {
+                alert("Too many boxes");
+                return false;
+            }
+            $('#options' + questionNumber).append(
+                "<div class='row' id='d" + questionNumber + optionNumber + "'><div class='input-field col s6'><label for='t" + questionNumber + optionNumber + "'>Option " + optionNumber + " </label><input type='text' id='t" + questionNumber + optionNumber + "'></div></div>"
+            );
+
+            ++optionNumber;
+        });
+
+        $('#removeOption' + questionNumber).click(function() {
+            if (optionNumber == 1) {
+                alert("Can u see any boxes");
+                return false;
+            }
+            --optionNumber;
+            $("#d" + questionNumber + optionNumber).remove();
+        });
+        $('#addQuestion').click(function() {
+            questionNumber++;
+            optionNumber = 1;
+            $('#main').append("<div class='container' id='Question" + questionNumber + "'><div class='row'><div class='col s12'><div class='row'><div class='input-field col s12'><textarea id='question" + questionNumber + "' class='materialize-textarea'></textarea><label for='question" + questionNumber + "'>Your Question</label></div><form id='options" + questionNumber + "'><div class='row' id='d" + questionNumber + optionNumber + "'><div class='input-field col s6'><label for='t" + questionNumber + optionNumber + "'>Option 1</label><input type='text' id='t" + questionNumber + optionNumber + "'></div></div></form>" + "<a class='btn-floating btn-large waves-effect waves-light red' id='addOption" + questionNumber + "'><i class='material-icons'>expand_more</i></a>" + "<a class='btn-floating btn-large waves-effect waves-light red' id='removeOption" + questionNumber + "'><i class='material-icons'>expand_less</i></a>" + "</div></div></div></div></div>"
+
+
+            );
+            //printing stuff to check the errors
+            // console.log("<div class='container' id='Question" + questionNumber + "'><div class='row'><div class='col s12'><div class='row'><div class='input-field col s12'><textarea id='question" + questionNumber + "' class='materialize-textarea'></textarea><label for='question" + questionNumber + "'>Your Question</label></div><form id='options" + questionNumber + "'><div class='row' id='d" + questionNumber + optionNumber + "'><div class='input-field col s6'><label for='t" + questionNumber + optionNumber + "'>Option 1</label><input type='text' id='t" + questionNumber + optionNumber + "'></div></div></form>" + "<a class='btn-floating btn-large waves-effect waves-light red' id='addOption" + questionNumber + "'><i class='material-icons'>expand_more</i></a>" + "<a class='btn-floating btn-large waves-effect waves-light red' id='removeOption" + questionNumber + "'><i class='material-icons'>expand_less</i></a>" + "</div></div></div></div></div>")
+            // console.log(questionNumber)
+            // optionNumber++;
+            // console.log(optionNumber)
+
+        });
+
+
+    });
+    </script>
+</body>
+
+</html>
