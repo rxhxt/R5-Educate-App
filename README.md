@@ -111,11 +111,11 @@ This module will be useful for teachers for setting MCQ questions for students.<
 <br>
 
 
-**3. [Backend Files](/backend%20files)**<br>
-&nbsp;&nbsp;&nbsp;3.1. [create_questions.py](/backend%20files/create_questions.py)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1. This is the backend for generating questions from the summarized text from the PDFs<br>
-&nbsp;&nbsp;&nbsp;3.2. [display_questions.py.py](/backend%20files/display_questions.py)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1. This is the backend for displaying questions from the summarized text from the PDFs and making a connection with the database<br>
+**4. [Backend Files](/backend%20files)**<br>
+&nbsp;&nbsp;&nbsp4.1. [create_questions.py](/backend%20files/create_questions.py)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1.1. This is the backend for generating questions from the summarized text from the PDFs<br>
+&nbsp;&nbsp;&nbsp;4.2. [display_questions.py.py](/backend%20files/display_questions.py)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2.1. This is the backend for displaying questions from the summarized text from the PDFs and making a connection with the database<br>
 **Issues:** No potential issue visible till now
 <br>
 <br>
