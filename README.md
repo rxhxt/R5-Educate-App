@@ -5,7 +5,7 @@ This repository includes the website team **Constant Variables** is making for t
 ## Project’s Overview<br>
 ### Theme-Name : Education<br>
 ### Application-Type : Website<br>
-
+**Tech Stack**: HTML | CSS | Bootstrap4 | MaterializeCSS | Javascript | Python | SQlite3 | Flask
 ### Idea-Description
 Since the advent of digital platforms for learning, and their tremendous use due to the current scenario, the students are getting bombarded with a lot of data, making it difficult for them to understand, digest,reproduce the content and even analyse their progress.
 
@@ -22,7 +22,7 @@ To tackle this problem, our project, R<sup>5</sup> Assist is a balance of a clas
 * Review
 * Reflect<br>
 
-Our project proves to be a resource for the students where teachers can upload assignments, notes, and many more things. It also helps students remember by summarising the content so that students can learn what’s most important. Our practice tests help students reproduce what they have already learned. Students can review their performance from our analytics dashboard, not only that our project also helps teachers review their students’ performance, their schedule, and compare results. In the end, after reviewing their performance the students can reflect and improve by taking our periodic review practice tests.
+Our project proves to be a resource for the students, where teachers can upload assignments, notes, and many more things. It also helps students remember by summarising the content so that students can learn what’s most important. Our practice tests help students reproduce what they have already learned. Students can review their performance from our analytics dashboard, not only that our project also helps teachers review their students’ performance, their schedule, and compare results. In the end, after reviewing their performance the students can reflect and improve by taking our periodic review practice tests.
 
 Overall we aim to provide a complete platform where we bridge the gap between the traditional classrooms and the online teaching-learning process.
 
@@ -108,6 +108,14 @@ This module will be useful for teachers for setting MCQ questions for students.<
 <br>
 
 
+**3. [Backend Files](/backend%20files)**<br>
+&nbsp;&nbsp;&nbsp;3.1. [create_questions.py](/backend%20files/create_questions.py)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1. This is the backend for generating questions from the summarized text from the PDFs<br>
+&nbsp;&nbsp;&nbsp;3.2. [display_questions.py.py](/backend%20files/display_questions.py)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1. This is the backend for displaying questions from the summarized text from the PDFs and making a connection with the database<br>
+**Issues:** No potential issue visible till now
+<br>
+<br>
 
 
 
