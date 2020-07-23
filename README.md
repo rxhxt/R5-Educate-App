@@ -128,9 +128,9 @@ This module will be useful for teachers for setting MCQ questions for students.<
 ```bash
 
 A) Clone the repository
-> git clone https://github.com/rxhxt/R5-Educate-App.git ### Fetch the code
+> git clone https://github.com/rxhxt/R5-Assist.git ### Fetch the code
 
-> cd R5-Educate-App/ ### Change to root directory
+> cd R5-Assist/ ### Change to root directory
 
 B) Install Python packages
 > python3 -m pip install -r requirements.txt
