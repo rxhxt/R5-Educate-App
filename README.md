@@ -40,7 +40,7 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Login and SignUp module<br>
 
 ### Installing Dependencies for backend
-
+<br></br>
 	```console
 	A) Clone the repository
 	> git clone https://github.com/rxhxt/R5-Educate-App.git ### Fetch the code
@@ -49,8 +49,5 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 
 	B) Install Python packages
 	> python3 -m pip install -r requirements.txt
-	
-	
+
 	```
-
-
