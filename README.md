@@ -42,18 +42,13 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 ### Installing Dependencies for backend
 
 ```bash
-A) Clone the repository
-> git clone https://github.com/kunalsinha9/FinSoftAI.git ### Fetch the code
 
-> cd FinSoftAI/ ### Change to root directory
+A) Clone the repository
+> git clone https://github.com/rxhxt/R5-Educate-App.git ### Fetch the code
+
+> cd R5-Educate-App/ ### Change to root directory
 
 B) Install Python packages
 > python3 -m pip install -r requirements.txt
-C) Install other dependencies
-> sudo apt install jq # jq is used for data collection
 
-> sudo apt install sqlite3
-	
-> sudo snap install heroku --classic
-	
 ```
