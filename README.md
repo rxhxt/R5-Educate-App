@@ -39,23 +39,21 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 &nbsp;&nbsp;&nbsp;a. [style.css](/Login%20And%20Signup%20Module/style.css)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Login and SignUp module<br>
 
-### Installing Dependencies for backend\
+### Installing Dependencies for backend
 
-	```bash
-	
-	A) Clone the repository
-	> git clone https://github.com/kunalsinha9/FinSoftAI.git ### Fetch the code
+```bash
+A) Clone the repository
+> git clone https://github.com/kunalsinha9/FinSoftAI.git ### Fetch the code
 
-	> cd FinSoftAI/ ### Change to root directory
+> cd FinSoftAI/ ### Change to root directory
 
-	B) Install Python packages
-	> python3 -m pip install -r requirements.txt
+B) Install Python packages
+> python3 -m pip install -r requirements.txt
+C) Install other dependencies
+> sudo apt install jq # jq is used for data collection
+
+> sudo apt install sqlite3
 	
-	C) Install other dependencies
-	> sudo apt install jq # jq is used for data collection
+> sudo snap install heroku --classic
 	
-	> sudo apt install sqlite3
-	
-	> sudo snap install heroku --classic
-	
-	```
+```
