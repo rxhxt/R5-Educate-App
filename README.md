@@ -26,6 +26,42 @@ Our project proves to be a resource for the students where teachers can upload a
 
 Overall we aim to provide a complete platform where we bridge the gap between the traditional classrooms and the online teaching-learning process.
 
+### Website flow for a teacher<br>
+
+1.  On visiting the landing page the teacher can see the benefits/features that we have to provide to him/her.<br>
+2.  Upon clicking the login/SignUp button the user will be directed to the Login and Signup Module, where he/she can register as a teacher if not done already or simply login to his/her profile.<br>
+3.  Upon Logging in to the portal, the features teacher will get are as follows:<br>
+&nbsp;&nbsp;&nbsp;**3.1. Upload PDF notes**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1. This tool will be used by the teacher to upload PDF notes to a particular class or a group of students as per his/her discretion<br>
+&nbsp;&nbsp;&nbsp;**3.2. Tests**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1. The teacher can set MCQ based tests for the students and send a notification for the students to attempt it.<br>
+&nbsp;&nbsp;&nbsp;**3.3. Send Notifications to Students**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.1 The teachers can send any notification to students.<br>
+&nbsp;&nbsp;&nbsp;**3.4. Comprehensive Dashboard**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.1. This comprehensive dashboard will include numerous analyses based on the performance of students of his/her class or even reports of an individual student. He/she can also view the number of classes taught by him/her and their progress.<br>
+&nbsp;&nbsp;&nbsp;**3.5. Adding Students to Class**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1. The teacher can add and remove students from his/her class based on her discretion.<br>
+&nbsp;&nbsp;&nbsp;**3.6. Profile**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.6.1. He/she would be able to access his/her profile to modify or alter some personal information and view other personal information, view the classes he/she is teaching <br>
+
+
+### Website flow for a student<br>
+
+1.  On visiting the landing page the student can see the benefits/features that we have to provide to him/her.<br>
+2.  Upon clicking the login/SignUp button the user will be directed to the Login and Signup Module, where he/she can register as a student if not done already or simply login to his/her profile.<br>
+3.  Upon Logging in to the portal, the features student will get are as follows:<br>
+&nbsp;&nbsp;&nbsp;**3.1. Summarizer tool**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.1.1. This tool will help the student to summarize the PDF notes sent by the teacher/uploaded by himself or herself for quick reference.<br>
+&nbsp;&nbsp;&nbsp;**3.2. Tests**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.1. The student can solve the tests assigned to him by the teacher<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.2. The student can also appear for the tests programmatically generated using the summary of the PDFs shared.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.2.3. Our custom made tests based on the combination of the teacher's tests, tests generated via the summary of PDF's with the use of the Fibonacci Study and Revision Technique.<br>
+&nbsp;&nbsp;&nbsp;**3.3. Notifications by Teachers**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.1 The student can see any notifications sent by the teachers teaching him and respond to them.<br>
+&nbsp;&nbsp;&nbsp;**3.4. Comprehensive Dashboard**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.4.1. This comprehensive dashboard will include numerous analyses based on the tests given, marks scored, time taken on various questions, heat-map of activity, etc.<br>
+&nbsp;&nbsp;&nbsp;**3.5. Profile**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1. He/she would be able to access his/her profile to modify or alter some personal information and view other personal information<br>
 
 ### Modules and Functionalities added
 
