@@ -7,7 +7,7 @@ This repository includes the website team **Constant Variables** is making for t
 ### Application-Type : Website<br>
 
 ### Idea-Description
-Since the advent of digital platforms for learning, and their tremendous use due to the current scenario, the students are getting bombarded with a lot of data, making it difficult for them to understand, digest,reproduce and even analyse their progress.
+Since the advent of digital platforms for learning, and their tremendous use due to the current scenario, the students are getting bombarded with a lot of data, making it difficult for them to understand, digest,reproduce the content and even analyse their progress.
 
 To tackle this problem, our project, R<sup>5</sup> Assist is a balance of a classroom-based teaching-learning website and an Analytics based tool beneficial for both students as well as teachers. We propose a comprehensive product website with the following features:<br>
 1. Login/SignUp facility for teachers as well as students. A teacher will be able to view any activity that a student in his/her class does.<br> 
