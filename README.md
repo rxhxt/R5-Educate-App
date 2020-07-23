@@ -42,6 +42,7 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 ### Installing Dependencies for backend
 <br></br>
 	```console
+	
 	A) Clone the repository
 	> git clone https://github.com/rxhxt/R5-Educate-App.git ### Fetch the code
 
