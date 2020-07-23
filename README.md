@@ -41,7 +41,8 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 
 ### Installing Dependencies for backend\
 
-	```console
+	```bash
+	
 	A) Clone the repository
 	> git clone https://github.com/kunalsinha9/FinSoftAI.git ### Fetch the code
 
