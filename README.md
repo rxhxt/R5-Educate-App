@@ -24,6 +24,9 @@ To tackle this problem, our project, R<sup>5</sup> Assist is a balance of a clas
 
 Our project proves to be a resource for the students, where teachers can upload assignments, notes, and many more things. It also helps students remember by summarising the content so that students can learn what’s most important. Our practice tests help students reproduce what they have already learned. Students can review their performance from our analytics dashboard, not only that our project also helps teachers review their students’ performance, their schedule, and compare results. In the end, after reviewing their performance the students can reflect and improve by taking our periodic review practice tests.
 
+***What is the Fibonacci Study Plan?***<br>
+It is a comprehensive study plan based on the Fibonacci Series(0, 1, 1, 2, 3, 5, 8, .....). This series or any similar one can help in increasing the remembrance of a particular topic. In this plan a portion of syllabus is revised at regular intervals of times say, first time after 1 day, then on the 2<sup>nd</sup> day, then on the 3<sup>rd</sup>, then on the 5<sup>th</sup> and so on. After some sessions of revision it becomes a part of the subconscious memory and is easy to recollect. This can be done for some important facts, formulae, dates and anything which requires through and continuous revision.
+
 Overall we aim to provide a complete platform where we bridge the gap between the traditional classrooms and the online teaching-learning process.
 
 ### Website flow for a teacher<br>
