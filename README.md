@@ -133,7 +133,7 @@ B) Install Python packages
 <br>
 <br>
 
-**5. Summarizer Tool**<br>
+**5. [Summarizer Tool](/summarize2)**<br>
 
 ```bash
 > cd summarize2  ### Change directory to the summarizer module
@@ -151,7 +151,7 @@ Go to website 0.0.0.0:9876
 <br>
 <br>
 
-**6. Dashboard Tool**<br>
+**6. [Dashboard Tool](/Dashboard%20)**<br>
 
 Just open dash.html on your browser.
 
