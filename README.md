@@ -160,12 +160,12 @@ Go to website 127.0.0.1:5000
 ### For the summarizer tool
 
 ```bash
-> cd Summarizer
-> pip3 install -r requirements.txt
+> cd Summarizer  ### Change directory to the summarizer module
+> pip3 install -r requirements.txt ### Install requirements
 
 Update the values of sender_pass and sender_address in mail.py
 
-> python3 views.py
+> python3 views.py  ### Start the server
 
 Go to website 0.0.0.0:9876
 
