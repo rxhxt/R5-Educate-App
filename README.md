@@ -136,3 +136,38 @@ B) Install Python packages
 > python3 -m pip install -r requirements.txt
 
 ```
+
+### For Giving the tests
+
+```bash
+> cd Giving Tests   ### Change directory to the giving tests folder
+> python3 flaskbackend.py  ### starting the flask server
+
+Go to website 127.0.0.1:5000/q=1
+```
+
+### For the backend of login ands signup module
+
+``` bash
+> cd Login and Signup Module  ### Change directory to the module
+> python3 login_app.py   ### start the server
+
+Go to website 127.0.0.1:5000
+ 
+```
+
+
+### For the summarizer tool
+
+```bash
+> cd Summarizer
+> pip3 install -r requirements.txt
+
+Update the values of sender_pass and sender_address in mail.py
+
+> python3 views.py
+
+Go to website 0.0.0.0:9876
+
+```
+
