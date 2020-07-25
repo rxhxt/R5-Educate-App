@@ -150,3 +150,9 @@ Go to website 0.0.0.0:9876
 **Issues:** No potential issue visible till now
 <br>
 <br>
+
+**6. Dashboard Tool**<br>
+
+Just open dash.html on your browser.
+
+**Issues:** Right now the dashboard is static only.
