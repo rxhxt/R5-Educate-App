@@ -136,7 +136,7 @@ B) Install Python packages
 **5. Summarizer Tool**<br>
 
 ```bash
-> cd Summarizer  ### Change directory to the summarizer module
+> cd summarize2  ### Change directory to the summarizer module
 > pip3 install -r requirements.txt ### Install requirements
 
 Update the values of sender_pass and sender_address in mail.py
