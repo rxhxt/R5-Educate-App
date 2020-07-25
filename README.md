@@ -70,13 +70,15 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 
 **1. [Login and SignUp Module](/Login%20And%20Signup%20Module)**<br>
 
-**Instructions for usage:** Copy all the 3 files, index.html, style.css, script.js in the same folder, and then open index.html on your browser.<br>
-&nbsp;&nbsp;&nbsp;a. [index.html](/Login%20And%20Signup%20Module/index.html)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the HTML for Login and SignUp module<br>
-&nbsp;&nbsp;&nbsp;a. [script.js](/Login%20And%20Signup%20Module/script.js)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the Javascript for Login and SignUp module<br>
-&nbsp;&nbsp;&nbsp;a. [style.css](/Login%20And%20Signup%20Module/style.css)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Login and SignUp module<br>
+
+``` bash
+> cd Login and Signup Module  ### Change directory to the module
+> python3 login_app.py   ### start the server
+
+Go to website 127.0.0.1:5000
+ 
+```
+
 
 **Issues:** No potential issue visible till now
 <br>
@@ -86,13 +88,14 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 
 This module will be useful to students for giving tests on the platform<br>
 
-**Instructions for usage:** Copy all the 3 files, index.html, style.css, script.js in the same folder, and then open index.html on your browser.<br>
-&nbsp;&nbsp;&nbsp;a. [index.html](/Giving%20Tests/UI/index.html)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the HTML for Giving Tests module<br>
-&nbsp;&nbsp;&nbsp;a. [script.js](/Giving%20Tests/UI/script.js)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the Javascript for Giving Tests module<br>
-&nbsp;&nbsp;&nbsp;a. [style.css](/Giving%20Tests/UI/style.css)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This file includes the CSS for Giving Tests module<br>
+```bash
+> cd Giving Tests   ### Change directory to the giving tests folder
+> python3 flaskbackend.py  ### starting the flask server
+
+Go to website 127.0.0.1:5000/q=1
+```
+
+
 
 **Issues:** Some more comments to be written in CSS and JS, this page is not completely optimized for mobile devices.
 <br>
@@ -111,17 +114,7 @@ This module will be useful for teachers for setting MCQ questions for students.<
 <br>
 
 
-**4. [Backend Files](/backend%20files)**<br>
-&nbsp;&nbsp;&nbsp;4.1. [create_questions.py](/backend%20files/create_questions.py)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1.1. This is the backend for generating questions from the summarized text from the PDFs<br>
-&nbsp;&nbsp;&nbsp;4.2. [display_questions.py](/backend%20files/display_questions.py)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2.1. This is the backend for displaying questions from the summarized text from the PDFs and making a connection with the database<br>
-
-**Issues:** No potential issue visible till now
-<br>
-<br>
-
-
+**4. Backend Files**<br>
 
 ### Installing Dependencies for backend
 
@@ -136,28 +129,11 @@ B) Install Python packages
 > python3 -m pip install -r requirements.txt
 
 ```
+**Issues:** No potential issue visible till now
+<br>
+<br>
 
-### For Giving the tests
-
-```bash
-> cd Giving Tests   ### Change directory to the giving tests folder
-> python3 flaskbackend.py  ### starting the flask server
-
-Go to website 127.0.0.1:5000/q=1
-```
-
-### For the backend of login ands signup module
-
-``` bash
-> cd Login and Signup Module  ### Change directory to the module
-> python3 login_app.py   ### start the server
-
-Go to website 127.0.0.1:5000
- 
-```
-
-
-### For the summarizer tool
+**5. Summarizer Tool**<br>
 
 ```bash
 > cd Summarizer  ### Change directory to the summarizer module
@@ -171,3 +147,6 @@ Go to website 0.0.0.0:9876
 
 ```
 
+**Issues:** No potential issue visible till now
+<br>
+<br>
