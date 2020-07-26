@@ -39,9 +39,11 @@ $(document).ready(function() {
             "<form id='options" + questionNumber + "'><div class='row' id='o" + questionNumber +
             "1'><div class='input-field col s6'><label for='t" + questionNumber + optionNumber + "'>Option 1</label><input type='text' id='t" + questionNumber + optionNumber + "'></div></div></form>"
 
-            +
+            +"<form id='correctoption"+questionNumber+"'><div class='row' id='co"+questionNumber+"'><div class='input-field col s8'><label for='Col"+questionNumber
+            +"'> Correct Option Number for Question "+questionNumber+"</label><input type='text' id='Co1'></div></div></form>"+
             "</div></div></div>"
         );
+                     
         optionNumber++;
         // console.log(addQ);
         len = optionForEachQuestion.length
