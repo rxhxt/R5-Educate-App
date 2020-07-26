@@ -3,8 +3,8 @@ from imports import *
 def send_fail(receiver_address):
     mail_content_file = open('fail_body.txt')
     #this is the password of the email ID from which the email is sent. It is not provided here because it is one of our team member's personal email ID. Hence the mail won't work in this phase but works normally.
-    sender_address = 'Email ID'
-    sender_pass = 'Password'
+    sender_address = 'r5assistineducation@gmail.com'
+    sender_pass = 'ConstantV'
     # Setup the MIME
     message = MIMEMultipart()
     message['From'] = "R5 Assist"
@@ -24,8 +24,8 @@ def send_fail(receiver_address):
 def send_mail(zipfile_name, receiver_address):
     mail_content_file = open('mail_body.txt')
     #this is the password of the email ID from which the email is sent. It is not provided here because it is one of our team member's personal email ID. Hence the mail won't work in this phase but works normally.
-    sender_address = 'Email_ID'
-    sender_pass = 'Password' 
+    sender_address = 'r5assistineducation@gmail.com'
+    sender_pass = 'ConstantV' 
     # Setup the MIME
     message = MIMEMultipart()
     message['From'] = "R5 Assist"
