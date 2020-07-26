@@ -209,9 +209,10 @@ and then open index.html in your browser.
                 <!-- The option column -->
                 <div class="col-lg-4">
                     <div class="row main rounded text-center box1" style="background-color: #32292F;">
-                        <p class="lead" style="color: white;" >Options</p>
+                        <p class="lead" style="color: white;">Options</p>
                     </div>
-                    <div class="row op op1 rounded">
+
+                    <button type='button' class=" btn row op op1 rounded">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="a">
@@ -220,10 +221,10 @@ and then open index.html in your browser.
                                 <span class='short'></span>
                                 <span class='long'></span>
                             </div>
-                        </div >
+                        </div>
                         {{ option_A }}
-                    </div>
-                    <div class="row op op1 rounded">
+                    </button>
+                    <button type='button' class=" btn row op op1 rounded">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="b">
@@ -234,8 +235,8 @@ and then open index.html in your browser.
                             </div>
                         </div>
                         {{ option_B }}
-                    </div>
-                    <div class="row op op1 rounded">
+                    </button>
+                    <button type='button' class=" btn row op op1 rounded">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="c">
@@ -246,8 +247,8 @@ and then open index.html in your browser.
                             </div>
                         </div>
                         {{ option_C }}
-                    </div>
-                    <div class="row op op1 rounded">
+                    </button>
+                    <button class=" btn row op op1 rounded">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="d">
@@ -258,7 +259,7 @@ and then open index.html in your browser.
                             </div>
                         </div>
                         {{ option_D }}
-                    </div>
+                    </button>
                 </div>
             </div>
             <!-- Question List -->
@@ -309,38 +310,38 @@ and then open index.html in your browser.
                             </div>
                             <div class="row size">
                                 <a class="roundbutton" href="http://127.0.0.1:5000/q=26"><span class="wrapper">26</span></a>
-                <a class="roundbutton" href="http://127.0.0.1:5000/q=27"><span class="wrapper">27</span></a>
-                <a class="roundbutton" href="http://127.0.0.1:5000/q=28"><span class="wrapper">28</span></a>
-                <a class="roundbutton" href="http://127.0.0.1:5000/q=29"><span class="wrapper">29</span></a>
-                <a class="roundbutton" href="http://127.0.0.1:5000/q=30"><span class="wrapper">30</span></a>
-            </div>
-        </div>
-    </div>
+                                <a class="roundbutton" href="http://127.0.0.1:5000/q=27"><span class="wrapper">27</span></a>
+                                <a class="roundbutton" href="http://127.0.0.1:5000/q=28"><span class="wrapper">28</span></a>
+                                <a class="roundbutton" href="http://127.0.0.1:5000/q=29"><span class="wrapper">29</span></a>
+                                <a class="roundbutton" href="http://127.0.0.1:5000/q=30"><span class="wrapper">30</span></a>
+                            </div>
+                        </div>
+                    </div>
                 </span>
-    </div>
-    <!-- Bottom Navbar-->
-    <nav class="navbar  navbar fixed-bottom navbar1" id="bottomNav" style="height: 50px;">
-        <form class="form-inline"  action = "http://localhost:5000/q={{ q_id }}" method = "post">>
-            <button type="button" class="btn btn-warning btn2"><i class=" fa fa-arrow-left"></i>&nbsp;&nbsp; Previous Question</button>
-            <button type="button" class="btn btn-primary btn2" style="background-color: #2D3142;"> <i class=" fa fa-bookmark"></i>&nbsp;&nbsp;Bookmark</button>
-            <button type="button" class="btn btn-danger btn2 "> <i class="fa fa-reply"></i>&nbsp;&nbsp;Report</button>
-            <button data-toggle="collapse" type="button" class="btn btn-primary btn2 btns" value="23"    style="background-color: #2D3142;">Submit
-            </button>
-            <button type="submit" class="btn  hide-on-small-only btn-success btns btn2 " value="23" name="SAE" id="sae" style="
+            </div>
+            <!-- Bottom Navbar-->
+            <nav class="navbar  navbar fixed-bottom navbar1" id="bottomNav" style="height: 50px;">
+                <form class="form-inline" action="http://localhost:5000/q={{ q_id }}" method="post">>
+                    <button type="button" class="btn btn-warning btn2"><i class=" fa fa-arrow-left"></i>&nbsp;&nbsp; Previous Question</button>
+                    <button type="button" class="btn btn-primary btn2" style="background-color: #2D3142;"> <i class=" fa fa-bookmark"></i>&nbsp;&nbsp;Bookmark</button>
+                    <button type="button" class="btn btn-danger btn2 "> <i class="fa fa-reply"></i>&nbsp;&nbsp;Report</button>
+                    <button data-toggle="collapse" type="button" class="btn btn-primary btn2 btns" value="23" style="background-color: #2D3142;">Submit
+                    </button>
+                    <button type="submit" class="btn  hide-on-small-only btn-success btns btn2 " value="23" name="SAE" id="sae" style="
     right: 100px;"><span class="hide-on-small-only">&nbsp;&nbsp;Save & Next </span> <i class=" fa fa-arrow-right"></i></button>
-        </form>
-    </nav>
-    <!-- The JS -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
-    <script src="./static/script.js"></script>
-    <!-- <script src="timer.js"></script> -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                </form>
+            </nav>
+            <!-- The JS -->
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
+            <script src="./static/script.js"></script>
+            <!-- <script src="timer.js"></script> -->
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
