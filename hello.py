@@ -10,7 +10,7 @@ import plotly.express as px
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css',"./static/da_style.css"]
 # server = Flask(__name__)
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app2 = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 conn = _sqlite3.connect('./r5.db',check_same_thread=False)
 data = pd.read_sql('Select roll_no,subject,marks from scorekids',conn)
@@ -22,7 +22,7 @@ fig = make_subplots(rows=1, cols=2)
 
 fig=px.bar(data, x="roll_no", y="marks", color="subject", barmode="group")
 fig1=px.pie(data1, values='roll_no', names='status')
-app.layout = html.Div(children=[
+app2.layout = html.Div(children=[
     html.H1('Scoresheet',style={'textAlign':'center',}),
     dcc.Graph(
         id='bar-graph',
@@ -38,4 +38,4 @@ app.layout = html.Div(children=[
 ],style={'backgroundColor':'white'})
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app2.run_server(debug=True)
