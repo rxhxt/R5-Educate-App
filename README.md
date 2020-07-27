@@ -66,6 +66,38 @@ Overall we aim to provide a complete platform where we bridge the gap between th
 &nbsp;&nbsp;&nbsp;**3.5. Profile**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1. He/she would be able to access his/her profile to modify or alter some personal information and view other personal information<br>
 
+## Final Running Instructions
+Open 4 different terminals
+On the first one run, 
+
+``` bash
+
+> python3 views.py   ### start the server
+ 
+```
+On the second one run, 
+``` bash
+
+> python3 db_student.py   ### start the server
+ 
+```
+On the third one run, 
+``` bash
+
+> python3 hello.py   ### start the server
+ 
+```
+On the fourth one run, 
+``` bash
+
+> python3 flaskbackend.py   ### start the server
+ 
+```
+Go to the directed server by flaskbackend.py
+
+
+
+
 ### Modules and Functionalities added
 
 **1. [Login and SignUp Module](/Login%20And%20Signup%20Module)**<br>
