@@ -1,5 +1,7 @@
 from flask import Flask, Response,redirect, url_for, request
 import flask
+import summarize2.views as sv
+
 import _sqlite3
 from display_questions import StoreQuestions
 import os
@@ -98,10 +100,11 @@ def dash_stu():
 def submission():
     if request.method == 'POST':
         return redirect(url_for('hello_world'))
-    return flask.render_template('success.html')
+    global name
+    return flask.render_template('success.html',name = name)
 
 
-@app.route('/')
+@app.route('/login')
 def login():
     return render_template('login.html')
 
@@ -110,7 +113,7 @@ def login():
 
 #    return render_template('index.html')
 
-@app.route('/',methods=["POST"])
+@app.route('/login',methods=["POST"])
 def create_entry():
     res=request.get_json()
     if res == None:
@@ -132,6 +135,9 @@ def create_entry():
         print(res)
         print(res['emailInput_d'])
         cur=mysql.connection.cursor()
+        global name, acc_holder
+        name = res['nameInput_d']
+        acc_holder = res['selectInput_d']
         cur.execute("INSERT INTO user(acctype,name,email,password) VALUES(%s,%s,%s,%s)",(res['selectInput_d'],res['nameInput_d'],res['emailInput_d'],res['passwordInput_d']))
         mysql.connection.commit()
         cur.close()
