@@ -1,0 +1,17 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #f7edd5;
+}
+
+.dropdown-content li a {
+    /*change color of text inside dropdown*/
+}
+
+#homeButton{
+	margin-top: 20vh;
+}
+
+h4{
+	text-align: center;
+	margin-top: 30vh; 
+}

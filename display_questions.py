@@ -25,23 +25,23 @@ class StoreQuestions():
         else:return data
     #to store the answered results
     def store_results(self,iscorrect, qid):
-        q2 = qid
-        print(q2)
-        query = 'Select * from questions where q_id = ' + str(qid)
+        qid = qid +1
+        # print(q2)
+        query = 'Select * from questions where q_id like ' + str(qid)
         cursor = conn.cursor()
         data = pd.read_sql(query, conn)
         print(data.head())
         data_list = data.values.ravel()
-        print(data_list)
+        print(len(data_list))
         query2 = ""
         if iscorrect:
             query2 = (f'''UPDATE questions SET times_correct = {data_list[9] + 1},
                    last_date_asked = "{datetime.today().strftime('%Y-%m-%d')}", "times_asked " = {data_list[7]+1}
-                    WHERE q_id = {qid} ''')
+                    WHERE q_id like {qid} ''')
         else:
             query2 = (f'''UPDATE questions SET times_correct = {data_list[10] + 1},
                                last_date_asked = "{datetime.today().strftime('%Y-%m-%d')}", "times_asked " = {data_list[7] + 1}
-                                WHERE q_id = {qid} ''')
+                                WHERE q_id like {qid} ''')
         cursor.execute(query2)
         conn.commit()
         query = 'Select * from questions where q_id = ' + str(qid)

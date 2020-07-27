@@ -1,3 +1,25 @@
+
+$('.oa').click(function() {
+    $('.sss').prop('value', "a");
+  })
+
+  $('.ob').click(function() {
+   
+    $('.sss').prop('value', "b");
+  })
+
+
+  $('.oc').click(function() {
+    $('.sss').prop('value', "c");
+  })
+
+
+$('.od').click(function() {
+    $('.sss').prop('value', "d");
+  })
+
+
+
 $('.op1').click(function() {
     $(this).find('.left').find('.c2').click();
 });
@@ -7,9 +29,7 @@ $('.c2').click(function() {
     if ($(this).hasClass('clicked')) {
         $(this).removeClass('clicked');
         $(this).find('p').removeClass('hide');
-        alert("hi")
         $(this).parent().parent().parent().removeClass('glow');
-//        document.querySelector('#sae').setAttribute("value","A");
     } else {
         $(this).addClass('clicked');
         $(this).parent().parent().parent().addClass('glow');
@@ -18,15 +38,12 @@ $('.c2').click(function() {
             $("#a").removeClass('clicked');
             $("#a > p").removeClass('hide');
             $("#a").parent().parent().parent().removeClass('glow');
-//            $("#sae").prop("value", "A");
-        document.getElementbyId('#sae').value="AA";
-        alert(document.getElementbyId('#sae').value)
         }
         if ($(this).attr("id") != 'b') {
             $('#b').removeClass('clicked');
             $("#b > p").removeClass("hide");
             $("#b").parent().parent().parent().removeClass('glow');
-            $("#sae").prop("value", "B");
+            
         }
         if ($(this).attr("id") != 'c') {
             $('#c').removeClass('clicked');

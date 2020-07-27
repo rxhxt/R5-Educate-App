@@ -188,7 +188,7 @@ and then open index.html in your browser.
         </div>
         <!-- Timer over -->
         <div class="container container-main left">
-            <h3 class="display-10" style=" font-family: Georgia Verdana;font-size: 40px;">Test Name</h3>
+            <h3 class="display-10" style=" font-family: Georgia Verdana;font-size: 40px;"> Sample Test </h3>
         </div>
     </nav>
     <!--Navbar ends here-->
@@ -211,8 +211,8 @@ and then open index.html in your browser.
                     <div class="row main rounded text-center box1" style="background-color: #32292F;">
                         <p class="lead" style="color: white;">Options</p>
                     </div>
-
-                    <button type='button' class=" btn row op op1 rounded">
+                    <form class="form-inline" action=" " method="post">
+                <button type='button'  class=" btn row op op1 rounded oa" name="option_A"  value="0" id= "button-A">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="a">
@@ -224,7 +224,7 @@ and then open index.html in your browser.
                         </div>
                         {{ option_A }}
                     </button>
-                    <button type='button' class=" btn row op op1 rounded">
+                    <button type='button' class=" btn row op op1 rounded ob" name="option_B" value="0" id= "button-B">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="b">
@@ -236,7 +236,7 @@ and then open index.html in your browser.
                         </div>
                         {{ option_B }}
                     </button>
-                    <button type='button' class=" btn row op op1 rounded">
+                    <button type='button' class=" btn row op op1 rounded oc" name="option_C" value="0" id= "button-C">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="c">
@@ -248,7 +248,7 @@ and then open index.html in your browser.
                         </div>
                         {{ option_C }}
                     </button>
-                    <button class=" btn row op op1 rounded">
+                    <button type="button"  class=" btn row op op1 rounded od" name="option_D" value="0" id= "button-D">
                         <div class="left">
                             <div class='c1'>
                                 <div class='c2' id="d">
@@ -262,6 +262,7 @@ and then open index.html in your browser.
                     </button>
                 </div>
             </div>
+            </form>
             <!-- Question List -->
             <div class="col-lg-3">
                 <div class="row main rounded text-center box1" style="background-color: #32292F;">
@@ -321,13 +322,13 @@ and then open index.html in your browser.
             </div>
             <!-- Bottom Navbar-->
             <nav class="navbar  navbar fixed-bottom navbar1" id="bottomNav" style="height: 50px;">
-                <form class="form-inline" action="http://localhost:5000/q={{ q_id }}" method="post">>
-                    <button type="button" class="btn btn-warning btn2"><i class=" fa fa-arrow-left"></i>&nbsp;&nbsp; Previous Question</button>
-                    <button type="button" class="btn btn-primary btn2" style="background-color: #2D3142;"> <i class=" fa fa-bookmark"></i>&nbsp;&nbsp;Bookmark</button>
-                    <button type="button" class="btn btn-danger btn2 "> <i class="fa fa-reply"></i>&nbsp;&nbsp;Report</button>
-                    <button data-toggle="collapse" type="button" class="btn btn-primary btn2 btns" value="23" style="background-color: #2D3142;">Submit
+                  <form class="form-inline" action="http://localhost:5000/q={{ q_id }}" method="post">
+                    <button type="submit" class="btn btn-warning btn2" name="back-button" value="prevoius"><i class=" fa fa-arrow-left"></i>&nbsp;&nbsp; Previous Question</button>
+                    <!--<button type="button" class="btn btn-primary btn2 disabled" style="background-color: #2D3142;margin-left: 0; text-align: left;"> <i class=" fa fa-bookmark"></i>&nbsp;&nbsp;Bookmark</button>
+                    <button type="button" class="btn btn-danger btn2 disabled"> <i class="fa fa-reply"></i>&nbsp;&nbsp;Report</button>-->
+                    <button type="submit" data-toggle="collapse"  class="btn btn-primary btn2 btns" value="submit" name="submit-button" style="background-color: #2D3142;">Submit
                     </button>
-                    <button type="submit" class="btn  hide-on-small-only btn-success btns btn2 " value="23" name="SAE" id="sae" style="
+                    <button type="submit" class="btn  hide-on-small-only btn-success btns btn2 sss"  name="SAE" id="sae" style="
     right: 100px;"><span class="hide-on-small-only">&nbsp;&nbsp;Save & Next </span> <i class=" fa fa-arrow-right"></i></button>
                 </form>
             </nav>
