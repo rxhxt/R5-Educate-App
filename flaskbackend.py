@@ -1,6 +1,6 @@
 from flask import Flask, Response,redirect, url_for, request
 import flask
-import summarize2.views as sv
+# import summarize2.views as sv
 
 import _sqlite3
 from display_questions import StoreQuestions
@@ -10,7 +10,7 @@ from flask_mysqldb import MySQL
 import form
 from werkzeug.exceptions import BadRequestKeyError
 import yaml
-from hello import app as app2
+from hello import app2 as app2
 from form import LoginForm
 app = Flask(__name__, template_folder="templates",static_folder="static")
 app.config['SECRET_KEY'] = 'you-will-never-guess'

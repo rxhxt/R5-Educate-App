@@ -102,7 +102,7 @@ body {
     margin-bottom: 15px;
     margin-left: 12px;
     margin-right: 15px;
-    text-decoration: none;
+    /* text-decoration: none; */
     color: #0062cc;
 }
 
@@ -118,13 +118,13 @@ body {
 .roundbutton:hover {
     transform: scale(1.2);
     transition-delay: 0;
-    text-decoration: none;
-    color: #0062cc;
+    background-color: #48A9A6;
+    color: white;
 }
 
 .book {
-    background-color: #48A9A6;
-    color: white;
+    /* background-color: #48A9A6; */
+    color: #0062cc;
 }
 
 .book:hover {
@@ -276,7 +276,7 @@ body {
     position: absolute;
     height: 5px;
     background: white;
-    transition: .s;
+    transition: .5s;
     display: none;
     opacity: 0;
 }
@@ -452,3 +452,65 @@ body {
     float: left;
     line-height: 11px;
 }
+
+
+body {
+    font-family: sans-serif;
+    display: grid;
+    height: 100vh;
+    place-items: center;
+  }
+  
+  .base-timer {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.green {
+    color: rgb(65, 184, 131);
+  }
+  
+  .base-timer__path-remaining.orange {
+    color: orange;
+  }
+  
+  .base-timer__path-remaining.red {
+    color: red;
+  }
+  
+  .base-timer__label {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+  
