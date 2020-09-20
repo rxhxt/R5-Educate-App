@@ -65,8 +65,6 @@ $(document).ready(function() {
             passConfirm = true;
         }
 
-        
-
         // label effect
         if ($(this).val().length > 0) {
             $(this).siblings('label').addClass('active');
@@ -91,13 +89,12 @@ $(document).ready(function() {
 
     // Form submit
     $('form.signup-form').submit(function(event) {
-
         event.preventDefault();
+
         if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
             $('.name, .email, .pass, .passConfirm').blur();
         } else {
             $('.signup, .login').addClass('switched');
-
             setTimeout(function() { $('.signup, .login').hide(); }, 700);
             setTimeout(function() { $('.brand').addClass('active'); }, 300);
             setTimeout(function() { $('.heading').addClass('active'); }, 600);
@@ -111,7 +108,6 @@ $(document).ready(function() {
     $('a.profile').on('click', function() {
         location.reload(true);
     });
-    
 
 
 });
