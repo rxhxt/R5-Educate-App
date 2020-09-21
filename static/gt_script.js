@@ -43,7 +43,6 @@ $('.c2').click(function() {
             $('#b').removeClass('clicked');
             $("#b > p").removeClass("hide");
             $("#b").parent().parent().parent().removeClass('glow');
-            
         }
         if ($(this).attr("id") != 'c') {
             $('#c').removeClass('clicked');
@@ -65,7 +64,35 @@ $(function() {
         $('on-hover').attr('i', 'fa fa-bookmark');
     })
 });
+var Dict={};
+function saveQuestion() {
+  console.log("LOLLLLLLL");
+  var curUrl=window.location.href;
+  var x=curUrl.split("%3D");
+  var qNo=1;
+  if(parseInt(x[1])){
+    qNo=parseInt(s[1]);
+  }
+  var answer;
+  if($('oa').hasClass('clicked')){
+    answer="A";
+  }
+  else if ($('ob').hasClass('clicked')){
+    answer="B";
+  }
+  else if(($('oc').hasClass('clicked'))){
+    answer="C";
+  }
+  else{
+    answer="D";
+  }
+  dict[String(qNo)]=answer;
+  for(key in dict){
+    var val=dict[key];
+    console.log(String(key)+"  "+String(val));
+  }
 
+}
 
 
 

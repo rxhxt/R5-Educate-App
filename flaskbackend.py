@@ -1,7 +1,9 @@
 from flask import Flask, Response,redirect, url_for, request
 import flask
 # import summarize2.views as sv
-
+from imports import *
+from preprocess import *
+from mail import *
 import _sqlite3
 from display_questions import StoreQuestions
 import os
@@ -84,6 +86,39 @@ def test_page2(q_id):
                                 option_B = data['option_B'].unique()[q_id],
                                 option_C = data['option_C'].unique()[q_id],
                                 option_D = data['option_D'].unique()[q_id],)
+
+
+
+
+
+def allowed_pdf(filename):
+    if not "." in filename:
+        return False
+    ext = filename.rsplit(".", 1)[1]
+    if ext.upper() in app.config["ALLOWED_EXTENSIONS"]:
+        return True
+    return False
+
+@app.route('/upload-pdf', methods=["GET", "POST"])
+def upload_pdf():
+    if request.method == "POST":
+        if request.files:
+            pdf = request.files["pdf"]
+            mail = request.form['email']
+
+            if pdf.filename == "":
+                return render_template('public/upload_pdf.html')
+            if not allowed_pdf(pdf.filename):
+                return render_template('public/upload_pdf.html')
+            else:
+                filename = 'pdf_file.pdf'
+                pdf.save(os.path.join(app.config["PDF_UPLOADS"], filename))
+                thread = Thread(target = pdfParser, kwargs={'filename': os.path.join(app.config["PDF_UPLOADS"], 'pdf_file.pdf'), 'mailid': f'{mail}'})
+                thread.start()
+                return render_template('public/upload_pdf.html')
+        return redirect(request.url)
+    return render_template('public/upload_pdf.html')
+
 
 
 @app.route("/dashboard_teacher")

@@ -127,16 +127,21 @@ function setCircleDasharray() {
 }
 function setCookie(time) {
     
-    document.cookie = "time" + "=" +String(time);
+    document.cookie = "time="+String(time)+";path=/;SameSite=Strict";
+    console.log("time="+String(time)+";path=/;SameSite=Strict");
+    // alert(document.cookie);
 }
 function getCookie() {
+    // console.log(document.cookie);
     var ca = document.cookie.split(';');
-    // for(var i=0;i<ca.length;i++){
-    //     console.log("Time "+String(i)+String(ca[i]));
-    // }
+    // console.log(ca);
+    for(var i=0;i<ca.length;i++){
+        console.log(ca[i]);
+    }
     if(ca.length>=1){
         var k=ca[0];
         var x=k.split('=');
+        // console.log(x);
         return parseInt(x[1]);
     }
     return null;
