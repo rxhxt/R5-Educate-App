@@ -44,6 +44,7 @@ def main():
                 print("User Registered")
                 return redirect("tp.html")
             except:
+                print("User Not Registered")
                 return render_template("main.html")    
             
         else:  
