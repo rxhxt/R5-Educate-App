@@ -113,7 +113,6 @@ def student():
     return render_template("layout_student.html", current_user=current_user)
 
 @app.route("/signup",methods=['POST','GET'])
-@app.route("/", methods=['POST','GET'])
 def signup():
     if current_user.is_authenticated:
         return redirect("login.html")
@@ -156,9 +155,9 @@ def login():
               
     return render_template('login.html', form=form)
 
-@app.route("/dashboard", methods=['GET', 'POST'])
-def dashboard():
-    return render_template('dashboard.html')
+@app.route('/tests')
+def testCover():
+    return render_template('testcover.html')
 
 
 
