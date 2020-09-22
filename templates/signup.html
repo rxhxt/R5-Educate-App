@@ -43,11 +43,41 @@
            -->
                 <!-- Login Part -->
                 <div class="col-sm-6 form">
-                    <div class="login form-peice">
-                        <form class="login-form" action="#" method="post">
+                    
+                    <!-- Signup Part -->
+                    <div class="signup form-peice">
+                        <form class="signup-form" action="#" method="post">
                             {{form.hidden_tag()}} <!--Adds a CSRF(Cross sight request forgery) token, helps to prevent forms against forgery attack-->
                             <div class="heading">
-                                <h3>Welcome Back!!</h3>
+                                <h3>You seem new here!!</h3>
+                            </div>
+                            <div class="form-group">
+                                <!-- {{form.typeOfUser.label(class='form-control-label')}} -->
+                                {%if form.typeOfUser.errors%}
+                                    {{form.typeOfUser(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.typeOfUser.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.typeOfUser(class='form-control form-control-lg')}}
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
+                                {{form.name.label(class='form-control-label')}}
+                                {%if form.name.errors%}
+                                    {{form.name(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.name.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.name(class='form-control form-control-lg')}}
+                                {%endif%}
                             </div>
                             <div class="form-group">
                                 {{form.email.label(class='form-control-label')}}
@@ -78,12 +108,26 @@
                                 {%endif%}
                             </div>
                             <div class="form-group">
+                                {{form.confirm_password.label(class='form-control-label')}}
+                                {%if form.confirm_password.errors%}
+                                    {{form.confirm_password(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.confirm_password.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.confirm_password(class='form-control form-control-lg')}}
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
                                 {{form.submit(class='btn btn-success')}}
-                                <a href="{{url_for('signup')}}">I'm New</a>
+                                <!-- <button type="button submit" class="btn btn-success signup">SignUp Now</button> -->
+                                <a href="{{url_for('login')}}">I have an account</a>
                             </div>
                         </form>
                     </div>
-                    <!-- Signup Part -->
                 </div>
             </div>
         </section>

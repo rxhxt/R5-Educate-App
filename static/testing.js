@@ -37,14 +37,14 @@ document.querySelector('form.signup-form').addEventListener('submit', function(e
     })
 
 });
-/*document.querySelector('form.login-form').addEventListener('submit', function(e) {
+document.querySelector('form.login-form').addEventListener('submit', function(e) {
 
     //prevent the normal submission of the form
     e.preventDefault();
     console.log(loginemailInput.value);
     console.log(loginPasswordInput.value);
 
-   /* var data = {
+    var data = {
         id: 1,
         loginemailInput_d: loginemailInput.value,
         loginPasswordInput_d: loginPasswordInput.value,
@@ -58,6 +58,6 @@ document.querySelector('form.signup-form').addEventListener('submit', function(e
         headers: new Headers({
             "content-type": "application/json"
         })
-    })*/
+    })
 
-//});
+});
