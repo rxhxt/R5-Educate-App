@@ -1,0 +1,175 @@
+<!--
+  Login/Signup Module
+  Instructions:
+  Keep the index.html, style.css and script.js file in the same folder and open the index.html
+  file in your browser
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login_style.css')}}">
+</head>
+
+<body>
+   
+    <div class="container">
+        {%with messages=get_flashed_messages(with_categories=true)%}
+                {%if messages%}
+                    {%for category, message in messages%}
+                    <div class="alert alert-{{category}}">
+                        {{message}}
+                    </div>
+                    {%endfor%}
+                {%endif%}
+              {%endwith%}
+        <section id="formHolder">
+            <div class="row">
+                <!-- The left side includes brand name, logo and the success message -->
+                <div class="col-sm-6 brand">
+                    <a href="#" class="logo">R<sup>5</sup></a>
+                    <div class="heading">
+                        <h2>R<sup>5</sup>Assist</h2>
+                        <p>Your Right Choice</p>
+                    </div>
+                </div>
+                <!-- The right side of the container
+            This includes
+              1. Signup Form
+              2. Login Form
+           -->
+                <!-- Login Part -->
+                <div class="col-sm-6 form">
+                    
+                    <!-- Signup Part -->
+                    <div class="signup form-peice">
+                        <form class="signup-form" action="#" method="post">
+                            {{form.hidden_tag()}} <!--Adds a CSRF(Cross sight request forgery) token, helps to prevent forms against forgery attack-->
+                            <div class="heading">
+                                <h3>You seem new here!!</h3>
+                            </div>
+                            <div class="form-group">
+                                <!-- {{form.typeOfUser.label(class='form-control-label')}} -->
+                                {%if form.typeOfUser.errors%}
+                                    {{form.typeOfUser(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.typeOfUser.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.typeOfUser(class='form-control form-control-lg')}}
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
+                                {{form.name.label(class='form-control-label')}}
+                                {%if form.name.errors%}
+                                    {{form.name(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.name.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.name(class='form-control form-control-lg')}}
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
+                                {{form.email.label(class='form-control-label')}}
+                                {%if form.email.errors%}
+                                    {{form.email(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.email.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.email(class='form-control form-control-lg')}}
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
+                                {{form.password.label(class='form-control-label')}}
+                                {%if form.password.errors%}
+                                    {{form.password(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.password.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.password(class='form-control form-control-lg')}}
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
+                                {{form.confirm_password.label(class='form-control-label')}}
+                                {%if form.confirm_password.errors%}
+                                    {{form.confirm_password(class='form-control form-control-lg is-invalid')}}
+                                    <div class="error hasError">
+                                        {%for error in form.confirm_password.errors%}
+                                            <span>{{error}}</span>
+                                        {%endfor%}
+                                    </div>
+
+                                {%else%}   
+                                    {{form.confirm_password(class='form-control form-control-lg')}}
+                                {%endif%}
+                            </div>
+                            <div class="form-group">
+                                {{form.submit(class='btn btn-success')}}
+                                <!-- <button type="button submit" class="btn btn-success signup">SignUp Now</button> -->
+                                <a href="{{url_for('login')}}">I have an account</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- The Javascript Part -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="{{url_for('static', filename='login_script.js')}}"></script>
+    <!-- <script src="{{url_for('static', filename='testing.js')}}"></script> -->
+    <!-- JS for checking whether the form data is being submitted properly or not -->
+   <!--  <script>
+    var nameInput = document.getElementById('name');
+    var emailInput = document.getElementById('email');
+    var passwordInput = document.getElementById('password');
+    var passwordInputConfirm = document.getElementById('passwordCon');
+    var selectInput = document.getElementById('exampleFormControlSelect1');
+    var loginPasswordInput = document.getElementById('loginPassword')
+    var loginemailInput = document.getElementById('loginemail');
+
+
+    //for signup
+    document.querySelector('form.signup-form').addEventListener('submit', function(e) {
+
+        //prevent the normal submission of the form
+        e.preventDefault();
+        console.log(selectInput.value);
+        console.log(nameInput.value);
+        console.log(emailInput.value);
+        console.log(passwordInput.value);
+        console.log(passwordInputConfirm.value);
+
+    });
+    //for login
+    document.querySelector('form.login-form').addEventListener('submit', function(e) {
+
+        //prevent the normal submission of the form
+        e.preventDefault();
+        console.log(loginemailInput.value);
+        console.log(loginPasswordInput.value);
+
+    });
+    </script> -->
+</body>
+
+</html>

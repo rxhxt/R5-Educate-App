@@ -14,8 +14,18 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login_style.css')}}">
 </head>
 
-<body translate="no">
+<body>
+   
     <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
         <section id="formHolder">
             <div class="row">
                 <!-- The left side includes brand name, logo and the success message -->

@@ -191,7 +191,10 @@ section#formHolder {
 .form form .form-group.hasError input {
     border-color: #f95959 !important;
 }
-
+.hasError{
+    color: #f95959 !important;
+    font-size: 12px;;
+}
 .form form .form-group.hasError label {
     color: #f95959 !important;
 }
@@ -208,8 +211,8 @@ section#formHolder {
 }
 
 .form form label.active {
-    transform: translateY(10px);
-    font-size: 10px;
+    transform: translateY(2px);
+    font-size: 8px;
 }
 
 .form form label.fontSwitch {
@@ -257,7 +260,7 @@ section#formHolder {
     font-size: 12px;
     text-transform: uppercase;
     padding: 5px 30px;
-    background: #f95959;
+    /* background: #f95959; */
     color: #fff;
     border-radius: 30px;
     margin-right: 20px;
