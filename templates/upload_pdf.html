@@ -1,43 +1,43 @@
-{% extends "public/templates/public_template.html" %}
+{% extends "layout_student.html" %}
 
-{% block title %}Summarizer Tool{% endblock %}
 
-{% block main %}
+{% block body %}
 
-<header style="border-radius: 0 0 0 0;" class="jumbotron">
-    <div class="container">
-        <div class="row row-header">
-            <div class="col header-texth">
-                <h1 align="center">R<sup>5</sup> Assist Summarizer Tool</h1>
-                <div class="col header-textp">
-                    <p align="center"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 <div class="container">
         <div class="row">
-            <div class="col">
-            <form  enctype="multipart/form-data" id = "submit-form">
-                <div class="form-group" align="center">
+            <div class="col s12">
+            <form  enctype="multipart/form-data" id = "submit-form" method='POST'>
+                <div class="form-group">
                     <br>
-                    <p>
+                    <p class="center-align">
                         Upload the PDF of a book to summarize. <br>
                         A ZIP file containing the chapter-wise summaries will be mailed to you within 30 minutes.
                     </p>
-                    <label>Email ID: </label>
-                    <input type="email" name="email" id="email">
+                    <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                        <span class="helper-text" data-error="wrong" data-success="right"></span>
+                        </div>
                     <br>
                     <br>
-                    <div class="custom-file pdf" align="center">
-                        <input type="file" name="pdf" id="pdf" class="custom-file-input">
-                        <label class="custom-file-label" for="pdf" text-align="center">Upload PDF</label>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" id="pdf">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" >
+                        </div>
                     </div>
                     <br>
                     <br>
-                    <button style="margin:auto;display:block" onClick="myFunction(event)"
-                    type="submit" class="btn btn-primary">Submit PDF </button>
+                    <p class="center-align">
+                    <button class="btn waves-effect waves-light" type="submit" onClick="myFunction(event)">Summarize
+    <i class="material-icons right">send</i>
+  </button>
+  </p>
+                    <!-- <button style="margin:auto;display:block" onClick="myFunction(event)"
+                    type="submit" class="btn btn-primary">Submit PDF </button> -->
                 </div>
             </form>
         </div>
@@ -69,6 +69,8 @@
         e.preventDefault()
         var file = document.getElementById('pdf').files[0]
         var mailid = document.getElementById('email').value
+        console.log(file)
+        console.log(mailid)
 
         if(!file){
         alert("PDF must have a filename.");

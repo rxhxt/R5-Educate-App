@@ -3,7 +3,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from flask_login import login_user
+from flask_login import login_user,  current_user, logout_user, login_required
 from datetime import datetime
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
@@ -105,6 +105,13 @@ def load_user(user_id):
     except:
         return None
 
+
+@app.route("/student")
+@login_required
+def student():
+    print(current_user.name)
+    return render_template("layout_student.html", current_user=current_user)
+
 @app.route("/signup",methods=['POST','GET'])
 @app.route("/", methods=['POST','GET'])
 def signup():
@@ -134,6 +141,7 @@ def login():
         print(form.email.data)
         print(form.password.data)
         user=User.query.filter_by(email=form.email.data).first()
+        print(user)
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
             next_page=request.args.get('next')
@@ -142,7 +150,7 @@ def login():
                 return redirect(next_page)
             else:
                 print("Logged In")
-                return redirect(url_for('dashboard'))    
+                return redirect(url_for('student'))    
         else:
             flash(f'Login Unsuccessful. Please check the email and/or Password', 'danger')  
               
@@ -210,17 +218,17 @@ def upload_pdf():
             mail = request.form['email']
 
             if pdf.filename == "":
-                return render_template('public/upload_pdf.html')
+                return render_template('upload_pdf.html')
             if not allowed_pdf(pdf.filename):
-                return render_template('public/upload_pdf.html')
+                return render_template('upload_pdf.html')
             else:
                 filename = 'pdf_file.pdf'
                 pdf.save(os.path.join(app.config["PDF_UPLOADS"], filename))
                 thread = Thread(target = pdfParser, kwargs={'filename': os.path.join(app.config["PDF_UPLOADS"], 'pdf_file.pdf'), 'mailid': f'{mail}'})
                 thread.start()
-                return render_template('public/upload_pdf.html')
+                return render_template('upload_pdf.html')
         return redirect(request.url)
-    return render_template('public/upload_pdf.html')
+    return render_template('upload_pdf.html')
 
 
 
@@ -241,7 +249,10 @@ def submission():
     global name
     return flask.render_template('success.html',name = name)
 
-
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('signup'))
 
 
 @app.route('/success')
