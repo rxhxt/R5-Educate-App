@@ -26,7 +26,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
-
+var x =document.getElementById("hidden-content-bar").innerText;
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
@@ -38,7 +38,7 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: "#ee6e73",
       hoverBackgroundColor: "#ee6e73",
       borderColor: "#4e73df",
-      data: [40, 50,20 ,10,80,90,98,20,75,64,20,84,65,45,80],
+      data: x.split(","),
     }],
   },
   options: {

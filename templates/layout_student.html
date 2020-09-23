@@ -25,7 +25,6 @@
         <li><a href="{{url_for('logout')}}">Logout<i class="material-icons right">directions_run</i></a></li>
     </ul>
     <nav>
-    <div class="navbar-fixed">
         <div class="nav-wrapper">
             <a href="#!" class="brand-logo" style="padding-left: 30px;">R<sup>5</sup> ASSIST</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -41,7 +40,6 @@
                 <li><a href="#">Notifications by Teacher</a></li>
                 <li><a href="" class="dropdown-button" data-activates="dropdown2">Hey! {{current_user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
-        </div>
         </div>
     </nav>
     {%with messages=get_flashed_messages(with_categories=true)%}

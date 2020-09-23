@@ -113,6 +113,7 @@ def student():
     return render_template("layout_student.html", current_user=current_user)
 
 @app.route("/signup",methods=['POST','GET'])
+@app.route("/", methods=['POST', 'GET'])
 def signup():
     if current_user.is_authenticated:
         return redirect("login.html")
@@ -129,10 +130,22 @@ def signup():
             flash(f'The user is already registered!! Try to login!!', category='danger')    
     return render_template('signup.html', form=form)
 
+@app.route('/dashboard_student',methods = ['POST', 'GET'])
+def dashboard_student():
+    send_list = str("0, 10, 12, 14, 16, 20, 20, 25, 30")
+    pie_list = str("65, 35")
+    bar_list = str("40, 50,20 ,10,80,90,98,20,75,64,20,84,65,45,80")
+    # print(str(send_list))
+    if request.method == 'POST':
+        return render_template('dash_s.html',hc = str(send_list),datapie= str(pie_list), databar=str(bar_list))
+    return render_template('dash_s.html',hc = str(send_list), datapie = str(pie_list),databar=str(bar_list))
+
+
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect("tp.html")
+        return redirect(url_for('dashboard_student'))
     form=LoginForm()
     print("LOL")
     if form.validate_on_submit():
@@ -149,11 +162,14 @@ def login():
                 return redirect(next_page)
             else:
                 print("Logged In")
-                return redirect(url_for('student'))    
+                return redirect(url_for('dashboard_student'))    
         else:
             flash(f'Login Unsuccessful. Please check the email and/or Password', 'danger')  
               
     return render_template('login.html', form=form)
+
+
+
 
 @app.route('/tests')
 def testCover():
@@ -231,14 +247,6 @@ def upload_pdf():
 
 
 
-@app.route("/dashboard_teacher")
-def dash_teacher():
-    return render_template('dashboard.html')
-
-
-@app.route("/dashboard_student")
-def dash_stu():
-    return render_template('dashboard_students.html')
 
 
 @app.route('/submitted',methods = ['POST', 'GET'])
