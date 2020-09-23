@@ -130,7 +130,9 @@ def signup():
             flash(f'The user is already registered!! Try to login!!', category='danger')    
     return render_template('signup.html', form=form)
 
+
 @app.route('/dashboard_student',methods = ['POST', 'GET'])
+@login_required
 def dashboard_student():
     send_list = str("0, 10, 12, 14, 16, 20, 20, 25, 30")
     pie_list = str("65, 35")
