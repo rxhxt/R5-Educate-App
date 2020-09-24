@@ -1,0 +1,1 @@
+In real life scenario facial expressions and emotions are nothing but responses to the external and internal events of human being.In human computer interaction recognition of end users expression & emotions from the video streaming plays a very important role

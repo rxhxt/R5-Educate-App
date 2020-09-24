@@ -16,7 +16,7 @@ from imports import *
 from preprocess import *
 from mail import *
 import _sqlite3
-from display_questions import StoreQuestions
+# from display_questions import StoreQuestions
 import os
 from flask import Flask,render_template,url_for,request,jsonify,make_response,redirect
 from flask_mysqldb import MySQL
@@ -27,7 +27,7 @@ from hello import app2 as app2
 from form import LoginForm
 app = Flask(__name__, template_folder="templates",static_folder="static")
 app.config['SECRET_KEY'] = 'you-will-never-guess'
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
 app.config["PDF_UPLOADS"] = "static/pdf/uploads"
 app.config["ALLOWED_EXTENSIONS"] = ["PDF"]
 app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024
@@ -43,7 +43,7 @@ login_manager.login_message_category='info'
 # app.config['MYSQL_PASSWORD']=db['mysql_password']
 # app.config['MYSQL_DB']=db['mysql_db']
 
-mysql=MySQL(app)
+# mysql=MySQL(app)
 name =""
 acc_holder = ""
 test_dict = {}
@@ -88,15 +88,112 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit=SubmitField('Login')
 
-class User(db.Model,UserMixin):
+class QuestionForm(FlaskForm):
+    question=StringField('Question', validators=[DataRequired()])
+    option_1=StringField('Option 1', validators=[DataRequired()])
+    option_2=StringField('Option 2', validators=[DataRequired()])
+    option_3=StringField('Option 3', validators=[DataRequired()])
+    option_4=StringField('Option 4', validators=[DataRequired()])
+    correct_ans=StringField('Type the correct Answer', validators=[DataRequired()])
+    submit=SubmitField('Add Question')
+
+class User(db.Model, UserMixin):
     id=db.Column(db.Integer, primary_key=True)
     typeOfUser=db.Column(db.String(10), nullable=False)
     name=db.Column(db.String(150), nullable=False)
+    image_file=db.Column(db.String(20), nullable=False,default='default.jpeg')
     email=db.Column(db.String(120), nullable=False, unique=True)
     password=db.Column(db.String(60), nullable=False)
+    date_registered=db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-    def __repr__(self):
-        return f"User('{self.name}', '{self.email}')"
+    loginLog=db.relationship('Log', backref='user')
+    SummarizerLog=db.relationship('Summarizer', backref='user')
+    testsCreated=db.relationship('Tests', backref='user')
+    testsGiven=db.relationship('History', backref='user')
+    uploads=db.relationship('Uploads', backref='user')
+    transactions=db.relationship('Transactions', backref='user')
+    personalQuestions=db.relationship('Personal', backref='user')
+
+
+    # def __repr__(self):
+    #     return f"User('{self.name}', '{self.email}')"
+
+class Log(db.Model, UserMixin):
+	session_id=db.Column(db.Integer, primary_key=True)
+	user_id=db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+	login_time=db.Column(db.DateTime, nullable=False,default=datetime.utcnow )
+	logout_time=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+
+
+class Summarizer(db.Model, UserMixin):
+	request_id=db.Column(db.Integer, primary_key=True)
+	user_id=db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+	email=db.Column(db.String(120), nullable=False)
+	time_when_requested=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+	file_name=db.Column(db.String(200), nullable=False)
+
+
+
+class Tests(db.Model, UserMixin):
+	test_id=db.Column(db.Integer, primary_key=True)
+	test_name=db.Column(db.String(150), nullable=False)
+	test_creator=db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+	date_created=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+
+	QuestionList=db.relationship('Questions', backref='questions')
+	TakenBy=db.relationship('History', backref='test')
+
+
+class Questions(db.Model, UserMixin):
+	question_id=db.Column(db.Integer, primary_key=True)
+	test_id=db.Column(db.Integer, db.ForeignKey("tests.test_id"), nullable=False)
+	question=db.Column(db.Text, nullable=False)
+	option_1=db.Column(db.Text, nullable=False)
+	option_2=db.Column(db.Text, nullable=False)
+	option_3=db.Column(db.Text, nullable=False)
+	option_4=db.Column(db.Text, nullable=False)
+	correct_option=db.Column(db.Text, nullable=False)
+
+class History(db.Model,UserMixin):
+	history_id=db.Column(db.Integer, primary_key=True)
+	user_id=db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+	test_id=db.Column(db.Integer, db.ForeignKey("tests.test_id"), nullable=False)
+	score=db.Column(db.Integer, nullable=False)
+	start_time=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+	end_time=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+
+class Personal(db.Model,UserMixin):
+	question_id=db.Column(db.Integer, primary_key=True)
+	user_id=db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+	question=db.Column(db.Text, nullable=False)
+	option_1=db.Column(db.Text, nullable=False)
+	option_2=db.Column(db.Text, nullable=False)
+	option_3=db.Column(db.Text, nullable=False)
+	option_4=db.Column(db.Text, nullable=False)
+	correct_option=db.Column(db.Text, nullable=False)
+	timesAsked=db.Column(db.Integer, nullable=False)
+	timesCorrect=db.Column(db.Integer, nullable=False)
+	last_date_asked=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+
+class Uploads(db.Model,UserMixin):
+	upload_id=db.Column(db.Integer, primary_key=True)
+	name=db.Column(db.String(150), nullable=False)
+	uploaded_by=db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+	time_uploaded=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+	message=db.Column(db.Text,nullable=True)
+
+
+class Transactions(db.Model,UserMixin):
+	transaction_id=db.Column(db.Integer, primary_key=True)
+	timestamp=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+	user_id=db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+	transaction_type=db.Column(db.String(100), nullable=False)
+
+
+
+
+
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -112,6 +209,8 @@ def student():
     print(current_user.name)
     return render_template("layout_student.html", current_user=current_user)
 
+
+
 @app.route("/signup",methods=['POST','GET'])
 @app.route("/", methods=['POST', 'GET'])
 def signup():
@@ -121,13 +220,20 @@ def signup():
     if form.validate_on_submit():
         hashed_password=bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user=User(typeOfUser=form.typeOfUser.data, name=form.name.data, email=form.email.data, password=hashed_password)
+        success=0
         try:
             db.session.add(user)
             db.session.commit()
-            flash(f'Account Created for {form.name.data}!, you can now login :)', category='success')
-            return redirect(url_for('login'))
+            success=1
         except:
-            flash(f'The user is already registered!! Try to login!!', category='danger')    
+            flash(f'The user is already registered!! Try to login!!', category='danger') 
+        if success==1:
+            no=User.query.filter_by(email=form.email.data).first().id
+            t1=Transactions(user_id=no,transaction_type='Registration')
+            db.session.add(t1)
+            db.session.commit()    
+            flash(f'Account Created for {form.name.data}!, you can now login :)', category='success')
+            return redirect(url_for('login'))   
     return render_template('signup.html', form=form)
 
 
@@ -142,7 +248,10 @@ def dashboard_student():
         return render_template('dash_s.html',hc = str(send_list),datapie= str(pie_list), databar=str(bar_list))
     return render_template('dash_s.html',hc = str(send_list), datapie = str(pie_list),databar=str(bar_list))
 
-
+@app.route("/dashboard_teacher", methods=['GET', 'POST'])
+@login_required
+def dashboard_teacher():
+    return render_template("layout_teacher.html")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -160,11 +269,20 @@ def login():
             login_user(user)
             next_page=request.args.get('next')
             flash(f'Hey {user.name}! Good to see you back ;)', category='success')
+            no=user.id
+            t1=Transactions(user_id=no,transaction_type='Login')
+            db.session.add(t1)
+            db.session.commit()   
             if next_page:
                 return redirect(next_page)
             else:
                 print("Logged In")
-                return redirect(url_for('dashboard_student'))    
+                if user.typeOfUser=='Student':
+                    return redirect(url_for('dashboard_student'))
+                else:
+                    return redirect(url_for('dashboard_teacher'))    
+
+                    
         else:
             flash(f'Login Unsuccessful. Please check the email and/or Password', 'danger')  
               
@@ -173,9 +291,27 @@ def login():
 
 
 
-@app.route('/tests')
+@app.route('/tests', methods=['GET', 'POST'])
+@login_required
 def testCover():
-    return render_template('testcover.html')
+    form=QuestionForm()
+    if form.validate_on_submit():
+        print(current_user.id)
+        print(form.question.data)
+        print(form.option_1.data)
+        p1=Personal(user_id=current_user.id, question=form.question.data, option_1=form.option_1.data, option_2=form.option_2.data, option_3=form.option_3.data, option_4=form.option_4.data, correct_option=form.correct_ans.data, timesCorrect=0, timesAsked=0)
+        t1=Transactions(user_id=current_user.id,transaction_type='Add A Question')
+        try:
+            db.session.add(p1)
+            db.session.add(t1)
+            db.session.commit()
+            flash(f'Your Question was added to your Personal TRAIN Test Database')
+
+            return redirect(url_for('testCover'))
+        except:
+            flash(f'We could not add your question!! Please Try Again!')  
+            return redirect(url_for('testCover'))  
+    return render_template('testcover.html', form=form)
 
 
 
@@ -235,17 +371,24 @@ def upload_pdf():
             mail = request.form['email']
 
             if pdf.filename == "":
-                return render_template('upload_pdf.html')
+                return render_template('upload_pdf.html', logs=current_user.SummarizerLog)
             if not allowed_pdf(pdf.filename):
-                return render_template('upload_pdf.html')
+                return render_template('upload_pdf.html', logs=current_user.SummarizerLog)
             else:
+                print(pdf.filename)
+                s1=Summarizer(user_id=current_user.id,email=mail, file_name=pdf.filename)
                 filename = 'pdf_file.pdf'
                 pdf.save(os.path.join(app.config["PDF_UPLOADS"], filename))
                 thread = Thread(target = pdfParser, kwargs={'filename': os.path.join(app.config["PDF_UPLOADS"], 'pdf_file.pdf'), 'mailid': f'{mail}'})
+                t1=Transactions(user_id=current_user.id,transaction_type='Summarized')
+                db.session.add(t1)
+                db.session.add(s1)
+                db.session.commit()
+
                 thread.start()
-                return render_template('upload_pdf.html')
+                return render_template('upload_pdf.html',logs=current_user.SummarizerLog)
         return redirect(request.url)
-    return render_template('upload_pdf.html')
+    return render_template('upload_pdf.html', logs=current_user.SummarizerLog)
 
 
 
@@ -260,6 +403,16 @@ def submission():
 
 @app.route('/logout')
 def logout():
+    no=current_user.id
+    print(no)
+    t1=Transactions(user_id=no,transaction_type='Logout')
+    db.session.add(t1)
+    db.session.commit()
+    loginTime=Transactions.query.filter_by(transaction_type='Login').filter_by(user_id=no).order_by(Transactions.timestamp.desc()).first().timestamp
+    print(loginTime)
+    l1=Log(user_id=no, login_time=loginTime)  
+    db.session.add(l1)
+    db.session.commit()
     logout_user()
     return redirect(url_for('signup'))
 

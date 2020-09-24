@@ -65,11 +65,6 @@
       </div>
     </div>
     </div>
-    <div class="fixed-action-btn">
-  		<a class="btn-floating btn-large red">
-    		<i class="large material-icons">add</i>
-  		</a>
-	</div>
   </div>
   <hr>
   <!-- Row 2 -->
@@ -135,5 +130,135 @@
   <hr>
 	</div>
 
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red" data-target="modal1">
+      <i class="large material-icons">add</i>
+    </a>
+</div>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h3>Add a Question to your Personalised <b>TRAIN</b> Database</h3>
+
+    <div class="row">
+      <form class="col s12" action="", method='POST'>
+        {{form.hidden_tag()}} <!--Adds a CSRF(Cross sight request forgery) token, helps to prevent forms against forgery attack-->
+        <div class="row modal-form-row">
+          <div class="input-field col s10">
+            {{form.question.label(class='form-control-label')}}
+                    {%if form.question.errors%}
+                        {{form.question(class='form-control form-control-lg is-invalid')}}
+                        <div class="invalid-feedback">
+                            {%for error in form.question.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+
+                    {%else%}   
+                        {{form.question(class='form-control form-control-lg')}}
+                    {%endif%}
+            <!-- <input id="image_url" type="text" class="validate"> -->
+            <!-- <label for="image_url">Image URL</label> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s10">
+            {{form.option_1.label(class='form-control-label')}}
+                    {%if form.option_1.errors%}
+                        {{form.option_1(class='form-control form-control-lg is-invalid')}}
+                        <div class="invalid-feedback">
+                            {%for error in form.option_1.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+
+                    {%else%}   
+                        {{form.option_1(class='form-control form-control-lg')}}
+                    {%endif%}
+          </div>
+        </div>   
+        <div class="row">
+          <div class="input-field col s10">
+            {{form.option_2.label(class='form-control-label')}}
+                    {%if form.option_2.errors%}
+                        {{form.option_2(class='form-control form-control-lg is-invalid')}}
+                        <div class="invalid-feedback">
+                            {%for error in form.option_2.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+
+                    {%else%}   
+                        {{form.option_2(class='form-control form-control-lg')}}
+                    {%endif%}
+          </div>
+        </div> 
+        <div class="row">
+          <div class="input-field col s10">
+            {{form.option_3.label(class='form-control-label')}}
+                    {%if form.option_3.errors%}
+                        {{form.option_3(class='form-control form-control-lg is-invalid')}}
+                        <div class="invalid-feedback">
+                            {%for error in form.option_3.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+
+                    {%else%}   
+                        {{form.option_3(class='form-control form-control-lg')}}
+                    {%endif%}
+          </div>
+        </div> 
+        <div class="row">
+          <div class="input-field col s10">
+            {{form.option_4.label(class='form-control-label')}}
+                    {%if form.option_4.errors%}
+                        {{form.option_4(class='form-control form-control-lg is-invalid')}}
+                        <div class="invalid-feedback">
+                            {%for error in form.option_4.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+
+                    {%else%}   
+                        {{form.option_4(class='form-control form-control-lg')}}
+                    {%endif%}
+          </div>
+        </div>   
+        <div class="row">
+          <div class="input-field col s10">
+            {{form.correct_ans.label(class='form-control-label')}}
+                    {%if form.correct_ans.errors%}
+                        {{form.correct_ans(class='form-control form-control-lg is-invalid')}}
+                        <div class="invalid-feedback">
+                            {%for error in form.correct_ans.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+
+                    {%else%}   
+                        {{form.correct_ans(class='form-control form-control-lg')}}
+                    {%endif%}
+          </div>
+        </div>   
+        <div class="modal-footer" style="padding-right: 40px;">
+          {{form.submit(class='waves-effect waves-green btn')}}
+          
+        </div>   
+      </form>
+    </div>
+  </div>
+  
+</div>
  {%endblock%}
 
+ {% block script %}
+ <script type='text/JavaScript'>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    // $('.modal-trigger').leanModal();
+    $('.modal').modal();
+    $('.fixed-action-btn').floatingActionButton();
+  });
+</script>
+ {% endblock %}

@@ -43,13 +43,46 @@
         </div>
     </div>
 </div>
+<div class="center-align">
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">View Summary History</a>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet">
+  <div class="modal-content">
+    <table class="responsive-table centered">
+        <thead>
+            <tr>
+                <th>Requested Email Id</th>
+                <th>PDF Name</th>
+                <th>Time When Requested</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for log in logs%}
+        <tr>
+            <td>{{log.email}}</td>
+            <td>{{log.file_name}}</td>
+            <td>{{log.time_when_requested}}</td>
+          </tr>
+        {%endfor%}
+        <tbody>
+
+    </table>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
 
 {% endblock %}
 
 {% block script %}
 
 <script>
-
+         $(document).ready(function(){
+    $('.modal').modal();
+  });
         $(".custom-file-input").on("change", function() {
           var fileName = $(this).val().split("\\").pop();
           $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
