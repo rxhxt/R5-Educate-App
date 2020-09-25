@@ -20,22 +20,22 @@
              <div class=" col-lg-9 ">
                  <div class="col-lg-8">
                      <!-- The left placed box for question -->
-                     <div class="row question box1 full-width-row rounded " style="background-color: #32292F;">
-                         <p class="lead" style="color: white;">Question No {{ q_id }}</p>
+                     <div class="row question box1 full-width-row rounded " style="background-color: #32292F;margin-right:20px;">
+                         <p class="lead" style="color: white; font-size: 2.5em;">Question No {{ q_id }}</p>
                      </div>
                      <div class=" row full-width-row description box2 rounded">
-                         <h5 class="ques">
+                         <h5 class="ques" style="font-size: 2em;">
                              {{ question }}
                          </h5>
                      </div>
                  </div>
                  <!-- The option column -->
                  <div class="col-lg-4">
-                     <div class="row main rounded text-center box1" style="background-color: #32292F;">
-                         <p class="lead" style="color: white;">Options</p>
+                     <div class="row main rounded text-center box1" style="background-color: #32292F;margin-left:40px;">
+                         <p class="lead" style="color: white; font-size: 1.4em;">Options</p>
                      </div>
                      <form class="form-inline" action=" " method="post">
-                 <button type='button'  class=" btn row op op1 rounded oa" name="option_A"  value="0" id= "button-A">
+                 <button type='button'  class=" btn row op op1 rounded oa ml-3 mt-2" name="option_A"  value="0" id= "button-A">
                          <div class="left">
                              <div class='c1'>
                                  <div class='c2' id="a">
@@ -45,9 +45,11 @@
                                  <span class='long'></span>
                              </div>
                          </div>
+                         <h5 class="ques" style="font-size: 1.2em;">
                          {{ option_A }}
+                         </h5>
                      </button>
-                     <button type='button' class=" btn row op op1 rounded ob" name="option_B" value="0" id= "button-B">
+                     <button type='button' class=" btn row op op1 rounded ob ml-3 mt-2" name="option_B" value="0" id= "button-B">
                          <div class="left">
                              <div class='c1'>
                                  <div class='c2' id="b">
@@ -57,9 +59,11 @@
                                  <span class='long'></span>
                              </div>
                          </div>
+                         <h5 class="ques" style="font-size: 1.2em;">
                          {{ option_B }}
+                         </h5>
                      </button>
-                     <button type='button' class=" btn row op op1 rounded oc" name="option_C" value="0" id= "button-C">
+                     <button type='button' class=" btn row op op1 rounded oc ml-3 mt-2" name="option_C" value="0" id= "button-C">
                          <div class="left">
                              <div class='c1'>
                                  <div class='c2' id="c">
@@ -69,9 +73,11 @@
                                  <span class='long'></span>
                              </div>
                          </div>
+                         <h5 class="ques" style="font-size: 1.2em;">
                          {{ option_C }}
+                         </h5>
                      </button>
-                     <button type="button"  class=" btn row op op1 rounded od" name="option_D" value="0" id= "button-D">
+                     <button type="button"  class=" btn row op op1 rounded od ml-3 mt-2" name="option_D" value="0" id= "button-D">
                          <div class="left">
                              <div class='c1'>
                                  <div class='c2' id="d">
@@ -81,13 +87,15 @@
                                  <span class='long'></span>
                              </div>
                          </div>
+                         <h5 class="ques" style="font-size: 1..2em;">
                          {{ option_D }}
+                         </h5>
                      </button>
                  </div>
              </div>
              </form>
              <!-- Question List -->
-             <div class="col-lg-3">
+             <!--<div class="col-lg-3">
                  <div class="row main rounded text-center box1" style="background-color: #32292F;">
                      <p class="lead" style="color: white;">Question List</p>
                  </div>
@@ -96,7 +104,7 @@
                      </div>
                      <div class="container overflow-none">
                          <div>
-                             <div class="row size">
+                                 <div class="row size">
                                  <a class="roundbutton " href="http://127.0.0.1:5000/q%3D1"><span class="wrapper">1</span></a>
                                  <a class="roundbutton " href="http://127.0.0.1:5000/q%3D2"><span class="wrapper">2</span></a>
                                  <a class="roundbutton " href="http://127.0.0.1:5000/q%3D3"><span class="wrapper">3</span></a>
@@ -139,16 +147,18 @@
                                  <a class="roundbutton" href="http://127.0.0.1:5000/q%3D29"><span class="wrapper">29</span></a>
                                  <a class="roundbutton" href="http://127.0.0.1:5000/q%3D30"><span class="wrapper">30</span></a>
                              </div>
+                         
                          </div>
                      </div>
                  </span>
-             </div>
+             </div> -->
              <!-- Bottom Navbar-->
              <nav class="navbar  navbar fixed-bottom navbar1" id="bottomNav" style="height: 50px;">
-                  
+                     <form class="form-inline" action="http://localhost:5000/q%3D{{ q_id }}" method="post">
                      <button type="submit" class="btn btn-warning btn2" name="back-button" value="prevoius"><i class=" fa fa-arrow-left"></i>&nbsp;&nbsp; Previous Question</button>
                      <!--<button type="button" class="btn btn-primary btn2 disabled" style="background-color: #2D3142;margin-left: 0; text-align: left;"> <i class=" fa fa-bookmark"></i>&nbsp;&nbsp;Bookmark</button>
                      <button type="button" class="btn btn-danger btn2 disabled"> <i class="fa fa-reply"></i>&nbsp;&nbsp;Report</button>-->
+                      <form class="form-inline" method="post">
                      <button type="submit" data-toggle="collapse"  class="btn btn-primary btn2 btns" value="submit" name="submit-button" style="background-color: #2D3142;">Submit
                      </button>
                      

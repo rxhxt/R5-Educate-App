@@ -12,11 +12,11 @@ from flask_login import current_user, UserMixin
 from flask import Flask, Response,redirect, url_for, request
 import flask
 # import summarize2.views as sv
-from imports import *
-from preprocess import *
-from mail import *
+# from imports import *
+# from preprocess import *
+# from mail import *
 import _sqlite3
-# from display_questions import StoreQuestions
+from display_questions import StoreQuestions
 import os
 from flask import Flask,render_template,url_for,request,jsonify,make_response,redirect
 from flask_mysqldb import MySQL
@@ -54,15 +54,18 @@ test_dict = {}
 def check_answer(data):
     global test_dict
     store = StoreQuestions() 
+    result=0
     print(test_dict)
     print("-------------------")
     ans_dict = {"A":1,"B":2,"C":3,"D":4}
     for key in  test_dict.keys(): 
+        print(data.iloc[key,6],test_dict.get(key))
         if(test_dict.get(key)==ans_dict.get(data.iloc[key,6])):
             store.store_results(True,key)
+            result+=1
         else:
             store.store_results(False,key)
-
+    return result,len(test_dict.keys())
 
 
 
@@ -326,8 +329,10 @@ def test_page2(q_id):
    global test_dict
    q_id = q_id-1
    if request.method == 'POST':
+       
         try:
             user = request.form["SAE"]
+            print(request.form)
             test_dict[q_id] = ans_dict.get(data.iloc[q_id,6])
             q_id=q_id+2
             return redirect(url_for('test_page2',q_id = q_id))
@@ -335,15 +340,14 @@ def test_page2(q_id):
             print("oops")
         try: 
             temp = request.form['back-button']
-            # q_id=q_id-1
             return redirect(url_for('test_page2',q_id = q_id))
         except BadRequestKeyError as bk:
             print("oops2")
         try: 
             temp = request.form['submit-button']
-            check_answer(data
-            )
+            score,divider = check_answer(data)
             return  redirect(url_for('submission'))
+            # return render_template('success.html',score = score,divider  = divider)
         except BadRequestKeyError as bk:
             print("oops2")
 
@@ -459,7 +463,10 @@ def submission():
     if request.method == 'POST':
         return redirect(url_for('hello_world'))
     global name
-    return flask.render_template('success.html',name = name)
+    store = StoreQuestions() 
+    data = store.get_questions(31)
+    score,divider = check_answer(data)
+    return flask.render_template('success.html',score = score,divider = divider)
 
 @app.route('/logout')
 def logout():

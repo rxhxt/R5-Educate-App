@@ -59,6 +59,21 @@ $('.c2').click(function() {
 });
 
 
+var answer;
+  if($('oa').hasClass('clicked')){
+    answer="A";
+  }
+  else if ($('ob').hasClass('clicked')){
+    answer="B";
+  }
+  else if(($('oc').hasClass('clicked'))){
+    answer="C";
+  }
+  else{
+    answer="D";
+  }
+  console.log(answer,"wfwfw");
+
 $(function() {
     $('on-hover').hover(function() {
         $('on-hover').attr('i', 'fa fa-bookmark');
@@ -86,6 +101,9 @@ function saveQuestion() {
   else{
     answer="D";
   }
+  console.log(answer,"wfwfw");
+  var opt = getElementbyId('set-options');
+  opt.value = answer;
   dict[String(qNo)]=answer;
   for(key in dict){
     var val=dict[key];
