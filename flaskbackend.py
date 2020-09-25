@@ -173,7 +173,7 @@ class Personal(db.Model,UserMixin):
 	correct_option=db.Column(db.Text, nullable=False)
 	timesAsked=db.Column(db.Integer, nullable=False)
 	timesCorrect=db.Column(db.Integer, nullable=False)
-	last_date_asked=db.Column(db.DateTime, nullable=False,default=datetime.utcnow)
+	last_date_asked=db.Column(db.DateTime, nullable=False)
 
 class Uploads(db.Model,UserMixin):
 	upload_id=db.Column(db.Integer, primary_key=True)
