@@ -360,8 +360,15 @@ def test_page2(q_id):
 
 
 
+@app.route("/profile_student", methods=['GET', 'POST'])
+@login_required
+def profile_student():
+    return render_template('profile_student.html', user=current_user)
 
-
+@app.route("/profile_teacher", methods=['GET', 'POST'])
+@login_required
+def profile_teacher():
+    return render_template('profile_teacher.html', user=current_user)
 def allowed_pdf(filename):
     if not "." in filename:
         return False
@@ -381,6 +388,18 @@ def notifications_student():
         l=[upload.name, upload.time_uploaded, upload.message,uu.name]
         uploads.append(l)
     return render_template("notification_student.html", uploads=uploads)
+
+@app.route("/notification-teacher", methods=['GET'])
+@login_required
+def notifications_teacher():
+    summaries=[]
+    s=Summarizer.query.all()
+    for summary in s:
+        by=summary.user_id
+        uu=User.query.filter_by(id=by).first()
+        l=[summary.email, summary.time_when_requested, summary.file_name,uu.name]
+        summaries.append(l)
+    return render_template("notification_teacher.html", summaries=summaries)    
 
 @app.route('/download', methods=['GET', 'POST'])
 @login_required
