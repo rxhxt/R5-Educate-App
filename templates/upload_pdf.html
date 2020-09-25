@@ -45,6 +45,9 @@
 </div>
 <div class="center-align">
 <a class="waves-effect waves-light btn modal-trigger" href="#modal1">View Summary History</a>
+<br>
+<br>
+<a class="waves-effect waves-light btn modal-trigger" href="#modal2">View Notes Uploaded By Teacher</a>
 </div>
 
 <!-- Modal Structure -->
@@ -74,6 +77,38 @@
     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
 </div>
+
+
+
+<div id="modal2" class="modal bottom-sheet">
+    <div class="modal-content">
+      <table class="responsive-table centered">
+          <thead>
+              <tr>
+                  <th>Teacher Name</th>
+                  <th>PDF Name</th>
+                  <th>Time When Uploaded</th>
+                  <th>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+          {% for upload in uploads%}
+          <tr>
+              <td>{{upload[3]}}</td>
+              <td>{{upload[0]}}</td>
+              <td>{{upload[1]}}</td>
+              <td>{{upload[2]}}</td>
+              <td><a class="waves-effect waves btn-small" href="{{url_for('download', id=upload[0])}}">Download<i class="material-icons right">file_download</i></a></td>
+            </tr>
+          {%endfor%}
+          <tbody>
+  
+      </table>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
 
 {% endblock %}
 

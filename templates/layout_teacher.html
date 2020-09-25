@@ -29,13 +29,13 @@
             <a href="#!" class="brand-logo" style="padding-left: 30px;">R<sup>5</sup> ASSIST</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Upload Notes</a></li>
-                <li><a href="#">Curate Tests</a></li>
+                <li><a href="{{url_for('upload_notes')}}">Upload Notes</a></li>
+                <li><a href="{{url_for('testCover')}}">Curate Tests</a></li>
                 <li><a href="#">Notifications of Students</a></li>
                 <li><a href="" class="dropdown-button" data-activates="dropdown1">Hey! {{current_user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="/upload-pdf">Upload Notes</a></li>
+                <li><a href="{{url_for('upload_notes')}}">Upload Notes</a></li>
                 <li><a href="{{url_for('testCover')}}">Curate Tests</a></li>
                 <li><a href="#">Notifications of Students</a></li>
                 <li><a href="" class="dropdown-button" data-activates="dropdown2">Hey! {{current_user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>

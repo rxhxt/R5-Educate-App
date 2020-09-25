@@ -1,0 +1,27 @@
+{% extends "layout_student.html" %}
+
+
+{% block body %}
+<div class="container">
+<ul class="collection">
+    {%for upload in uploads%}
+    <li class="collection-item avatar">
+        <i class="material-icons circle">file_upload</i>
+        <blockquote style="font-size:15;">File Uploaded by {{upload[3]}}</blockquote>
+        <br>
+        <span><b>File Name:</b> {{upload[0]}}</span>
+        <br><br>
+        <p><b>Uploaded at:</b> {{upload[1]}}</p>
+        <br>
+        <p><b>Message:</b> {{upload[2]}}</p>
+        <br>
+        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      </li>
+    {%endfor%}
+   
+  </ul>
+  </div>
+
+
+
+{%endblock%}

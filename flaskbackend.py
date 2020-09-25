@@ -1,4 +1,4 @@
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for,send_from_directory
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
@@ -29,6 +29,7 @@ app = Flask(__name__, template_folder="templates",static_folder="static")
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
 app.config["PDF_UPLOADS"] = "static/pdf/uploads"
+app.config["UPLOAD_FOLDER"] = 'static/notes/uploads'
 app.config["ALLOWED_EXTENSIONS"] = ["PDF"]
 app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024
 db=SQLAlchemy(app)
@@ -96,6 +97,8 @@ class QuestionForm(FlaskForm):
     option_4=StringField('Option 4', validators=[DataRequired()])
     correct_ans=StringField('Type the correct Answer', validators=[DataRequired()])
     submit=SubmitField('Add Question')
+    
+
 
 class User(db.Model, UserMixin):
     id=db.Column(db.Integer, primary_key=True)
@@ -363,17 +366,74 @@ def allowed_pdf(filename):
         return True
     return False
 
+@app.route("/notification-student", methods=['GET'])
+@login_required
+def notifications_student():
+    uploads=[]
+    u=Uploads.query.all()
+    for upload in u:
+        by=upload.uploaded_by
+        uu=User.query.filter_by(id=by).first()
+        l=[upload.name, upload.time_uploaded, upload.message,uu.name]
+        uploads.append(l)
+    return render_template("notification_student.html", uploads=uploads)
+
+@app.route('/download', methods=['GET', 'POST'])
+@login_required
+def download():    
+    print("cid="+str(current_user.id))
+    id = request.args['id']
+    print(id)
+    t1=Transactions(user_id=current_user.id, transaction_type='Download PDF')
+    db.session.add(t1)
+    db.session.commit()
+    return send_from_directory(app.config["UPLOAD_FOLDER"], filename=id, as_attachment=True)
+
+@app.route('/upload-notes', methods=['GET', 'POST'])
+@login_required
+def upload_notes():
+    if request.method == "POST":
+        if request.files:
+            pdf = request.files["pdf"]
+            message = request.form['textarea2']
+
+            if pdf.filename == "":
+                return render_template('upload_notes.html', logs=current_user.uploads)
+            if not allowed_pdf(pdf.filename):
+                return render_template('upload_notes.html', logs=current_user.uploads)
+            else:
+                print(pdf.filename)
+                print(message)
+                u1=Uploads(name=pdf.filename, uploaded_by=current_user.id, message=message)
+                t1=Transactions(user_id=current_user.id, transaction_type='Upload Notes')
+                db.session.add(u1)
+                db.session.add(t1)
+                db.session.commit()
+                pdf.save(os.path.join(app.config["UPLOAD_FOLDER"] , pdf.filename))
+                return render_template('upload_notes.html', logs=current_user.uploads)
+        return redirect(request.url)
+    return render_template('upload_notes.html', logs=current_user.uploads)                               
+
+
+
 @app.route('/upload-pdf', methods=["GET", "POST"])
 def upload_pdf():
+    uploads=[]
+    u=Uploads.query.all()
+    for upload in u:
+        by=upload.uploaded_by
+        uu=User.query.filter_by(id=by).first()
+        l=[upload.name, upload.time_uploaded, upload.message,uu.name]
+        uploads.append(l)
     if request.method == "POST":
         if request.files:
             pdf = request.files["pdf"]
             mail = request.form['email']
 
             if pdf.filename == "":
-                return render_template('upload_pdf.html', logs=current_user.SummarizerLog)
+                return render_template('upload_pdf.html', logs=current_user.SummarizerLog, uploads=uploads)
             if not allowed_pdf(pdf.filename):
-                return render_template('upload_pdf.html', logs=current_user.SummarizerLog)
+                return render_template('upload_pdf.html', logs=current_user.SummarizerLog, uploads=uploads)
             else:
                 print(pdf.filename)
                 s1=Summarizer(user_id=current_user.id,email=mail, file_name=pdf.filename)
@@ -386,9 +446,9 @@ def upload_pdf():
                 db.session.commit()
 
                 thread.start()
-                return render_template('upload_pdf.html',logs=current_user.SummarizerLog)
+                return render_template('upload_pdf.html',logs=current_user.SummarizerLog, uploads=uploads)
         return redirect(request.url)
-    return render_template('upload_pdf.html', logs=current_user.SummarizerLog)
+    return render_template('upload_pdf.html', logs=current_user.SummarizerLog, uploads=uploads)
 
 
 
