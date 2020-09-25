@@ -11,6 +11,8 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from flask_login import current_user, UserMixin
 from flask import Flask, Response,redirect, url_for, request
 import flask
+from get_test import Fibonnacci
+import pandas as pd
 # import summarize2.views as sv
 # from imports import *
 # from preprocess import *
@@ -323,8 +325,15 @@ def testCover():
 
 @app.route('/q=<int:q_id>',methods = ['POST', 'GET'])
 def test_page2(q_id):
-   store = StoreQuestions() 
-   data = store.get_questions(31)
+#    store = StoreQuestions() 
+#    data = store.get_questions(31)
+   f = Fibonnacci()
+# print(f.get_Test(2))
+   questions_list,A,B,C,D,ans   = f.get_Test(3)
+   data_dict={'q_id':range(0,10),'question':questions_list,'option_A':A,'option_B':B,
+                'option_C':C,'option_D':D}
+   data = pd.DataFrame(columns=['q_id','question','option_A','option_B','option_C','option_D'],data = data_dict)
+   print(data.head())
    ans_dict = {"A":1,"B":2,"C":3,"D":4}
    global test_dict
    q_id = q_id-1
@@ -335,7 +344,7 @@ def test_page2(q_id):
             print(request.form)
             test_dict[q_id] = ans_dict.get(data.iloc[q_id,6])
             q_id=q_id+2
-            if(q_id==31):
+            if(q_id==10):
                 return  redirect(url_for('submission'))
             return redirect(url_for('test_page2',q_id = q_id))
         except BadRequestKeyError as bk:

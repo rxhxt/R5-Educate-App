@@ -26,4 +26,6 @@ class Fibonnacci():
 
 f = Fibonnacci()
 # print(f.get_Test(2))
-f.get_Test(3)
+questions_list,A,B,C,D,ans   = f.get_Test(3)
+print(A)
+print(type(A))
