@@ -98,6 +98,80 @@ class QuestionForm(FlaskForm):
     correct_ans=StringField('Type the correct Answer', validators=[DataRequired()])
     submit=SubmitField('Add Question')
     
+class TestForm(FlaskForm):
+    test_name=StringField('Test Name',validators=[DataRequired()])
+    question1=StringField('Question 1', validators=[DataRequired()])
+    option_11=StringField('Option 1', validators=[DataRequired()])
+    option_12=StringField('Option 2', validators=[DataRequired()])
+    option_13=StringField('Option 3', validators=[DataRequired()])
+    option_14=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_1=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question2=StringField('Question 2', validators=[DataRequired()])
+    option_21=StringField('Option 1', validators=[DataRequired()])
+    option_22=StringField('Option 2', validators=[DataRequired()])
+    option_23=StringField('Option 3', validators=[DataRequired()])
+    option_24=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_2=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question3=StringField('Question 3', validators=[DataRequired()])
+    option_31=StringField('Option 1', validators=[DataRequired()])
+    option_32=StringField('Option 2', validators=[DataRequired()])
+    option_33=StringField('Option 3', validators=[DataRequired()])
+    option_34=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_3=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question4=StringField('Question 4', validators=[DataRequired()])
+    option_41=StringField('Option 1', validators=[DataRequired()])
+    option_42=StringField('Option 2', validators=[DataRequired()])
+    option_43=StringField('Option 3', validators=[DataRequired()])
+    option_44=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_4=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question5=StringField('Question 5', validators=[DataRequired()])
+    option_51=StringField('Option 1', validators=[DataRequired()])
+    option_52=StringField('Option 2', validators=[DataRequired()])
+    option_53=StringField('Option 3', validators=[DataRequired()])
+    option_54=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_5=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question6=StringField('Question 6', validators=[DataRequired()])
+    option_61=StringField('Option 1', validators=[DataRequired()])
+    option_62=StringField('Option 2', validators=[DataRequired()])
+    option_63=StringField('Option 3', validators=[DataRequired()])
+    option_64=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_6=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question7=StringField('Question 7', validators=[DataRequired()])
+    option_71=StringField('Option 1', validators=[DataRequired()])
+    option_72=StringField('Option 2', validators=[DataRequired()])
+    option_73=StringField('Option 3', validators=[DataRequired()])
+    option_74=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_7=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question8=StringField('Question 8', validators=[DataRequired()])
+    option_81=StringField('Option 1', validators=[DataRequired()])
+    option_82=StringField('Option 2', validators=[DataRequired()])
+    option_83=StringField('Option 3', validators=[DataRequired()])
+    option_84=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_8=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question9=StringField('Question 9', validators=[DataRequired()])
+    option_91=StringField('Option 1', validators=[DataRequired()])
+    option_92=StringField('Option 2', validators=[DataRequired()])
+    option_93=StringField('Option 3', validators=[DataRequired()])
+    option_94=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_9=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    question10=StringField('Question 10', validators=[DataRequired()])
+    option_101=StringField('Option 1', validators=[DataRequired()])
+    option_102=StringField('Option 2', validators=[DataRequired()])
+    option_103=StringField('Option 3', validators=[DataRequired()])
+    option_104=StringField('Option 4', validators=[DataRequired()])
+    correct_ans_10=StringField('Type the correct Answer', validators=[DataRequired()])
+
+    submit=SubmitField('Upload Test')
+
 
 
 class User(db.Model, UserMixin):
@@ -156,6 +230,9 @@ class Questions(db.Model, UserMixin):
 	option_3=db.Column(db.Text, nullable=False)
 	option_4=db.Column(db.Text, nullable=False)
 	correct_option=db.Column(db.Text, nullable=False)
+	timesAsked=db.Column(db.Integer, nullable=False)
+	timesCorrect=db.Column(db.Integer, nullable=False)
+	last_date_asked=db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 class History(db.Model,UserMixin):
 	history_id=db.Column(db.Integer, primary_key=True)
@@ -176,7 +253,7 @@ class Personal(db.Model,UserMixin):
 	correct_option=db.Column(db.Text, nullable=False)
 	timesAsked=db.Column(db.Integer, nullable=False)
 	timesCorrect=db.Column(db.Integer, nullable=False)
-	last_date_asked=db.Column(db.DateTime, nullable=False)
+	last_date_asked=db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 class Uploads(db.Model,UserMixin):
 	upload_id=db.Column(db.Integer, primary_key=True)
@@ -198,6 +275,8 @@ class Transactions(db.Model,UserMixin):
 
 
 
+
+
 @login_manager.user_loader
 def load_user(user_id):
     try:
@@ -212,13 +291,56 @@ def student():
     print(current_user.name)
     return render_template("layout_student.html", current_user=current_user)
 
+@app.route("/upload_test", methods=['GET', 'POST'])
+@login_required
+def upload_test():
+    form=TestForm()
+    if form.validate_on_submit():
+        print(form.test_name.data)
+        t1=Tests(test_name=form.test_name.data, test_creator=current_user.id)
+        print(form.data.items())
+        data=list(form.data.items())[1:]
+        # print(data)
+        for i in range(0,len(data),6):
+            question=data[i][1]
+            option_1=data[i+1][1]
+            option_2=data[i+2][1]
+            option_3=data[i+3][1]
+            option_4=data[i+4][1]
+            correct_ans=data[i+5][1]
+            print(question, option_1, option_2, option_3, option_4)
+        # for i in range(1,11):
+        #         print(form.question1.data)
+        #         question="form.question"+str(i)+".data"
+        #         option_1="option_"+str(i)+"1"
+        #         option_2="option_"+str(i)+"2"
+        #         option_3="option_"+str(i)+"3"
+        #         option_4="option_"+str(i)+"4"
+        #         print(question)
+        #         # print(str(i)+question)
+                # print(str(i)+form.option_1.data)
+        # try:
+        #     # db.session.add(t1)
+        #     # db.session.commit()
+        #     # test_id=Tests.Query.filter_by(test_name=form.test_name.data).first().test_id
+            
+        # except:
+        #     flash(f'Your Test Could not be created! Try Again')    
+
+
+
+
+    return render_template("upload_test.html", form=form)    
 
 
 @app.route("/signup",methods=['POST','GET'])
 @app.route("/", methods=['POST', 'GET'])
 def signup():
     if current_user.is_authenticated:
-        return redirect("login.html")
+        if current_user.typeOfUser=='Student':
+            return redirect(url_for('dashboard_student'))
+        else:
+            return redirect(url_for('dashboard_teacher'))    
     form=RegistrationForm()
     if form.validate_on_submit():
         hashed_password=bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -364,7 +486,7 @@ def profile_student():
 @app.route("/profile_teacher", methods=['GET', 'POST'])
 @login_required
 def profile_teacher():
-    return render_template('profile_teacher.html', user=current_user)
+    return render_template('profile_student.html', user=current_user)
 def allowed_pdf(filename):
     if not "." in filename:
         return False

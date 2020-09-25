@@ -6,3 +6,7 @@ body {
 .dropdown-content li a {
     /*change color of text inside dropdown*/
 }
+.chart-heat-map{
+    font-size: 18px !important;
+    color: black !important;
+}

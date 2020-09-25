@@ -1,0 +1,88 @@
+{%extends 'layout_teacher.html'%}
+
+{%block body%}
+  <!-- Modal Trigger -->
+  <div class='center-align' style='margin-top: 40px;'>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Create a New Test</a>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="container">
+        <br>
+        <h3>Create An MCQ Test For Your Students</h3>
+        <form class="col s12" action="", method='POST'>
+            {{form.hidden_tag()}} 
+            <!-- Adds a CSRF(Cross sight request forgery) token, helps to prevent forms against forgery attack -->
+            {% set i = namespace(value=0) %}
+            {%set j=4%}
+            {% for field in form %}
+            {% if field.type == "SubmitField" %}
+            <div class="modal-footer" style="padding-right: 40px;">
+          {{form.submit(class='waves-effect waves-green btn')}}
+          
+            </div> 
+            {%else%}
+            <div class="row modal-form-row">
+                <div class="input-field col s10">
+    
+                    {{field.label(class='form-control-label')}}
+                        {%if field.errors%}
+                            {{field(class='form-control form-control-lg is-invalid')}}
+                            <div class="invalid-feedback">
+                                {%for error in field.errors%}
+                                    <span>{{error}}</span>
+                                {%endfor%}
+                            </div>
+    
+                        {%else%}   
+                            {{field(class='form-control form-control-lg')}}
+                        {%endif%}
+              </div>
+            </div>
+            {%endif%}
+    {% endfor %}
+    </form>
+    </div>
+  </div>
+<br><br><br>
+  <div class="center-align">
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">View Tests Created History</a>
+    </div>
+    
+    <!-- Modal Structure -->
+    <div id="modal2" class="modal bottom-sheet">
+      <div class="modal-content">
+        <table class="responsive-table centered">
+            <thead>
+                <tr>
+                    <th>Notes Uploaded</th>
+                    <th>Message Sent</th>
+                    <th>Time When Uploaded</th>
+                </tr>
+              </thead>
+              <tbody>
+            {% for log in logs%}
+            <tr>
+                <td>{{log.name}}</td>
+                <td>{{log.message}}</td>
+                <td>{{log.time_uploaded}}</td>
+              </tr>
+            {%endfor%}
+            <tbody>
+    
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+{%endblock%}
+
+{%block script%}
+<script>
+    $(document).ready(function(){
+    $('.modal').modal();
+  });
+    </script>
+{%endblock%}
