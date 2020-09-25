@@ -1,8 +1,8 @@
-import _sqlite3
+import sqlite3
 import pandas as pd
 from datetime import datetime
 pd.set_option('display.max_columns', None)
-conn = _sqlite3.connect('./data2.db',check_same_thread=False)
+conn = sqlite3.connect('./data2.db',check_same_thread=False)
 
 class StoreQuestions():
     #To Add Questions to the DB
