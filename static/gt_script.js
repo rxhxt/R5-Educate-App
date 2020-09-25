@@ -54,19 +54,19 @@ $('.c2').click(function() {
             $("#d > p").removeClass("hide");
             $("#d").parent().parent().parent().removeClass('glow');
         }
-    }
+    } 
 
 });
 
 
-var answer;
-  if($('oa').hasClass('clicked')){
+var answer = 'F';
+  if($('oa').hasClass('glow')){
     answer="A";
   }
-  else if ($('ob').hasClass('clicked')){
+  else if ($('ob').hasClass('glow')){
     answer="B";
   }
-  else if(($('oc').hasClass('clicked'))){
+  else if(($('oc').hasClass('glow'))){
     answer="C";
   }
   else{

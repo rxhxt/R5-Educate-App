@@ -163,6 +163,7 @@
                      </button>
                      
                      <form class="form-inline" action="http://localhost:5000/q%3D{{ q_id }}" method="post">
+                     <input type = "hidden" name = "option" value = "none", id = 'set-options'>
                      <button type="submit" class="btn  hide-on-small-only btn-success btns btn2 sss"  name="SAE" id="sae" style="right: 100px;">
                     
                  <span class="hide-on-small-only">&nbsp;&nbsp;Save & Next </span> <i class=" fa fa-arrow-right"></i></button>
@@ -171,7 +172,7 @@
              <!-- The JS -->
              <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
              <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
-             <script type="text/javascript" src="{{url_for('static', filename='gt_script.js')}}"></script>
+             <script type="text/javascript" src="./static/gt_script.js"></script>
              <!-- Optional JavaScript -->
              <!-- jQuery first, then Popper.js, then Bootstrap JS -->
              <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>

@@ -335,6 +335,8 @@ def test_page2(q_id):
             print(request.form)
             test_dict[q_id] = ans_dict.get(data.iloc[q_id,6])
             q_id=q_id+2
+            if(q_id==31):
+                return  redirect(url_for('submission'))
             return redirect(url_for('test_page2',q_id = q_id))
         except BadRequestKeyError as bk:
             print("oops")
