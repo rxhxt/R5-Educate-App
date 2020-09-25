@@ -12,53 +12,55 @@
      <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-heatmap.min.js"></script>
 
   <!-- Custom styles for this template-->
   <link href="./static/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body>
-   <ul id="dropdown1" class="dropdown-content ">
-        <li class="divider"></li>
-        <li><a href="{{url_for('profile_student')}}">My Profile<i class="material-icons right">person</i></a></li>
-        <li><a href="{{url_for('logout')}}">Logout<i class="material-icons right">directions_run</i></a></li>
-    </ul>
-    <ul id="dropdown2" class="dropdown-content ">
-        <li class="divider"></li>
-        <li><a href="{{url_for('profile_student')}}">My Profile<i class="material-icons right">person</i></a></li>
-        <li><a href="{{url_for('logout')}}">Logout<i class="material-icons right">directions_run</i></a></li>
-    </ul>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="{{url_for('dashboard_student')}}" class="brand-logo" style="padding-left: 30px;">R<sup>5</sup> ASSIST</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/upload-pdf">Summarizer</a></li>
-                <li><a href="{{url_for('testCover')}}">Tests</a></li>
-                <li><a href="{{url_for('notifications_student')}}">Notifications by Teacher</a></li>
-                <li><a href="" class="dropdown-button" data-activates="dropdown1">Hey! {{current_user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="/upload-pdf">Summarizer</a></li>
-                <li><a href="{{url_for('testCover')}}">Tests</a></li>
-                <li><a href="{{url_for('notifications_student')}}">Notifications by Teacher</a></li>
-                <li><a href="" class="dropdown-button" data-activates="dropdown2">Hey! {{current_user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-        </div>
-    </nav>
-    {%with messages=get_flashed_messages(with_categories=true)%}
-                {%if messages%}
-                    {%for category, message in messages%}
-                    <div class='center-align'>
-                    <div class="chip center-align">
-                        {{message}}
-                         <i class="close material-icons">close</i>
-                    </div>
-                    </div>
-                    {%endfor%}
-                {%endif%}
-              {%endwith%}
-   {% block body %}{% endblock %}
+  <ul id="dropdown1" class="dropdown-content ">
+    <li class="divider"></li>
+    <li><a href="{{url_for('profile_student')}}">My Profile<i class="material-icons right">person</i></a></li>
+    <li><a href="{{url_for('logout')}}">Logout<i class="material-icons right">directions_run</i></a></li>
+</ul>
+<ul id="dropdown2" class="dropdown-content ">
+    <li class="divider"></li>
+    <li><a href="{{url_for('profile_student')}}">My Profile<i class="material-icons right">person</i></a></li>
+    <li><a href="{{url_for('logout')}}">Logout<i class="material-icons right">directions_run</i></a></li>
+</ul>
+<nav>
+    <div class="nav-wrapper">
+        <a href="{{url_for('dashboard_student')}}" class="brand-logo" style="padding-left: 30px;">R<sup>5</sup> ASSIST</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/upload-pdf">Summarizer</a></li>
+            <li><a href="{{url_for('testCover')}}">Tests</a></li>
+            <li><a href="{{url_for('notifications_student')}}">Notifications by Teacher</a></li>
+            <li><a href="" class="dropdown-button" data-activates="dropdown1">Hey! {{current_user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/upload-pdf">Summarizer</a></li>
+            <li><a href="{{url_for('testCover')}}">Tests</a></li>
+            <li><a href="{{url_for('notifications_student')}}">Notifications by Teacher</a></li>
+            <li><a href="" class="dropdown-button" data-activates="dropdown2">Hey! {{current_user.name}}<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+    </div>
+</nav>
+{%with messages=get_flashed_messages(with_categories=true)%}
+            {%if messages%}
+                {%for category, message in messages%}
+                <div class='center-align'>
+                <div class="chip center-align">
+                    {{message}}
+                     <i class="close material-icons">close</i>
+                </div>
+                </div>
+                {%endfor%}
+            {%endif%}
+          {%endwith%}
+{% block body %}{% endblock %}
     <!--JavaScript at end of body for optimized loading-->
     
     <!-- Content Wrapper -->
@@ -69,10 +71,83 @@
   
           <!-- Begin Page Content -->
           <div class="container-fluid">
+            
+            <!-- Cards -->
+            <br/>
+            <div class="row">
+
+              
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-50 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters">
+                      <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Total Tests Given</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">60</div>
+                      </div>
+                      <!-- <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
   
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-50 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters">
+                      <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">Avg Acurracy (Physics)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">45%</div>
+                      </div>
+                      <!-- <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-50 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters">
+                      <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-info text-uppercase mb-1">Avg Acurracy (Chemistry)</div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-50 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters">
+                      <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">Avg Acurracy (Mathematics)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">18%</div>
+                      </div>
+                      <!-- <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Page Heading -->
-            <br>
-            <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+            <!-- <h1 class="h3 mb-2 text-gray-800">Charts</h1> -->
   
             <!-- Content Row -->
             <div class="row">
@@ -82,7 +157,7 @@
                 <!-- Area Chart -->
                 <div class="card shadow mb-4">
                   <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Syllabus Schedule</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tests Count</h6>
                   </div>
                   <div class="card-body">
                     <div class="chart-area">
@@ -102,7 +177,7 @@
                 <div class="card shadow mb-4">
                   <!-- Card Header - Dropdown -->
                   <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Result Analysis</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Subject Wise Test Count</h6>
                   </div>
                   <!-- Card Body -->
                   <div class="card-body">
@@ -134,6 +209,18 @@
         </div>
         <div id="hidden-content-bar" style="display: none;" >{{ databar }}</div>
 
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Subject Wise Accuracy</h6>
+          </div>
+          <div class="card-body">
+            <div class="chart-heat-map">
+              <div id="container-heat-map"></div>
+            </div>
+            <hr>
+          </div>
+        </div>
+
         <!-- End of Main Content -->
   
   
@@ -160,6 +247,47 @@
     <script src="./static/js/demo/chart-area-demo.js"></script>
   <script src="./static/js/demo/chart-pie-demo.js"></script>
   <script src="./static/js/demo/chart-bar-demo.js"></script>
+  <script src="./static/js/demo/heatmap.js"></script>
+  <script>
+    anychart.onDocumentReady(function () {
+
+// create the data 
+var data = [
+  { x: "Test 1", y: "Physics", heat: 0.676 },
+  { x: "Test 1", y: "Chemistry", heat: 0.691 },
+  { x: "Test 1", y: "Maths", heat: 0.735 },
+  { x: "Test 2", y: "Physics", heat: 0.76 },
+  { x: "Test 2", y: "Chemistry", heat: 0.19 },
+  { x: "Test 2", y: "Maths", heat: 0.35 },
+  { x: "Test 3", y: "Physics", heat: 0.26 },
+  { x: "Test 3", y: "Chemistry", heat: 0.31 },
+  { x: "Test 3", y: "Maths", heat: 0.30 },
+  { x: "Test 4", y: "Physics", heat: 0.46 },
+  { x: "Test 4", y: "Chemistry", heat: 0.61 },
+  { x: "Test 4", y: "Maths", heat: 0.13 },
+];        
+
+// create the chart and set the data
+chart = anychart.heatMap(data);
+
+// set the chart title
+// chart.title("Subject wise Accuracy");
+
+// create and configure the color scale.
+var customColorScale = anychart.scales.linearColor();
+customColorScale.colors(["#ffcdd2 ", "#c62828"]);
+
+// set the color scale as the color scale of the chart
+chart.colorScale(customColorScale);
+
+// set the container id
+chart.container("container-heat-map");
+
+// initiate drawing the chart
+chart.draw();
+
+});
+  </script>
 </body>
 
 </html>
