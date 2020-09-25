@@ -361,6 +361,10 @@ def test_page2(q_id):
 def profile_student():
     return render_template('profile_student.html', user=current_user)
 
+@app.route("/profile_teacher", methods=['GET', 'POST'])
+@login_required
+def profile_teacher():
+    return render_template('profile_teacher.html', user=current_user)
 def allowed_pdf(filename):
     if not "." in filename:
         return False
