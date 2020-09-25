@@ -2,7 +2,7 @@ import _sqlite3
 import pandas as pd
 from datetime import datetime
 pd.set_option('display.max_columns', None)
-conn = _sqlite3.connect('./data.db',check_same_thread=False)
+conn = _sqlite3.connect('./data2.db',check_same_thread=False)
 
 class StoreQuestions():
     #To Add Questions to the DB
@@ -26,13 +26,12 @@ class StoreQuestions():
     #to store the answered results
     def store_results(self,iscorrect, qid):
         qid = qid +1
-        # print(q2)
         query = 'Select * from questions where q_id like ' + str(qid)
         cursor = conn.cursor()
         data = pd.read_sql(query, conn)
-        print(data.head())
+        # print(data.head())
         data_list = data.values.ravel()
-        print(len(data_list))
+        # print(len(data_list))
         query2 = ""
         if iscorrect:
             query2 = (f'''UPDATE questions SET times_correct = {data_list[9] + 1},
@@ -46,7 +45,7 @@ class StoreQuestions():
         conn.commit()
         query = 'Select * from questions where q_id = ' + str(qid)
         data = pd.read_sql(query, conn)
-        print(data.to_dict())
+        # print(data.to_dict())
 
 
 # Q = StoreQuestions()

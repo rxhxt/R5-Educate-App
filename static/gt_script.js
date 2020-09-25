@@ -54,10 +54,25 @@ $('.c2').click(function() {
             $("#d > p").removeClass("hide");
             $("#d").parent().parent().parent().removeClass('glow');
         }
-    }
+    } 
 
 });
 
+
+var answer = 'F';
+  if($('oa').hasClass('glow')){
+    answer="A";
+  }
+  else if ($('ob').hasClass('glow')){
+    answer="B";
+  }
+  else if(($('oc').hasClass('glow'))){
+    answer="C";
+  }
+  else{
+    answer="D";
+  }
+  console.log(answer,"wfwfw");
 
 $(function() {
     $('on-hover').hover(function() {
@@ -86,6 +101,9 @@ function saveQuestion() {
   else{
     answer="D";
   }
+  console.log(answer,"wfwfw");
+  var opt = getElementbyId('set-options');
+  opt.value = answer;
   dict[String(qNo)]=answer;
   for(key in dict){
     var val=dict[key];
