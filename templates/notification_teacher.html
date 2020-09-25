@@ -1,0 +1,27 @@
+{% extends "layout_teacher.html" %}
+
+
+{% block body %}
+<div class="container">
+<ul class="collection">
+    {%for summary in summaries%}
+    <li class="collection-item avatar">
+        <i class="material-icons circle">file_download</i>
+        <blockquote style="font-size:15;">Summarizer used by {{summary[3]}}</blockquote>
+        <br>
+        <span><b>Sent to Email:</b> {{summary[0]}}</span>
+        <br><br>
+        <p><b>Requested at:</b> {{summary[1]}}</p>
+        <br>
+        <p><b>File Name:</b> {{summary[2]}}</p>
+        <br>
+        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      </li>
+    {%endfor%}
+   
+  </ul>
+  </div>
+
+
+
+{%endblock%}
